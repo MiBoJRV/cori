@@ -234,6 +234,36 @@ mobileMenuLinks.forEach(function (link) {
         }
     });
 
+    const newsSwiperElement = document.querySelector('.news-swiper');
+    if (newsSwiperElement) {
+        const newsSwiper = new Swiper('.news-swiper', {
+            loop: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            speed: 600,
+            spaceBetween: 24,
+            slidesPerView: 3,
+            pagination: { el: '.news-swiper .swiper-pagination', clickable: true },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 12
+                },
+                576: {
+                    slidesPerView: 1,
+                    spaceBetween: 14
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 24
+                }
+            }
+        });
+    }
+
     // --------------- COOKIE BANNER ---------------
     const cookieBanner = document.getElementById('cookieBanner');
     const acceptAllCookiesBtn = document.getElementById('acceptAllCookies');

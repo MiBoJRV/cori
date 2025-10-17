@@ -818,10 +818,109 @@ main {
 
 }
 
+.news-carousel {
+  padding: 60px 0;
+  background: $white;
+
+  .news-container {
+    max-width: 1232px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .news-title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    color: $background-gray;
+    text-align: center;
+    max-width: 832px;
+    width: 100%;
+    margin: 0 auto 8px;
+  }
+
+  .news-subtitle {
+    font-weight: 400;
+    font-size: 18px;
+    color: $background-gray;
+    opacity: 0.8;
+    text-align: center;
+    margin: 0 auto 32px;
+    max-width: 720px;
+  }
+
+  .news-swiper {
+    width: 100%;
+  }
+
+  .news-swiper .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .news-swiper .swiper-slide {
+    border: 1px solid #DBDBDB;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    height: 400px;
+  }
+
+  .news-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    @media only screen and (max-width: 480px) {
+      object-fit: contain;
+      height: auto;
+    }
+  }
+
+  .news-swiper .swiper-pagination {
+    position: relative;
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .news-swiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: $gray;
+    opacity: 0.5;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .news-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: $brand-color;
+  }
+
+  @media only screen and (max-width: 991px) {
+    padding: 40px 0;
+
+    .news-title {
+      font-size: 30px;
+    }
+
+    .news-subtitle {
+      font-size: 16px;
+    }
+
+    .news-swiper .swiper-slide {
+      height: 360px;
+    }
+  }
+}
+
 .support-section {
   padding: 80px 0;
   background: $light-grey;
-  
+
   @media only screen and (max-width: 768px) {
     padding: 56px 0;
   }
@@ -830,9 +929,9 @@ main {
     display: flex;
     border-radius: 16px;
     overflow: hidden;
-    
+
     @media only screen and (max-width: 991px) {
-    flex-direction: column;
+      flex-direction: column;
     }
   }
 
@@ -851,7 +950,7 @@ main {
     text-align: center;
     max-width: 587px;
     margin: 0 auto 8px;
-    
+
     @media only screen and (max-width: 768px) {
       font-weight: 700;
       font-size: 30px;
@@ -918,7 +1017,7 @@ main {
     max-width: 624px;
     width: 100%;
     margin-bottom: 10px;
-    
+
     @media only screen and (max-width: 768px) {
       max-width: none;
     }
@@ -928,7 +1027,7 @@ main {
       font-size: 24px;
       color: $background-gray;
       opacity: 0.8;
-      
+
       @media only screen and (max-width: 768px) {
         font-size: 18px;
       }
@@ -957,7 +1056,7 @@ main {
     border-radius: 99px;
     max-width: 120px;
     margin-bottom: 49px;
-    
+
     @media only screen and (max-width: 768px) {
       height: 40px;
       padding: 0 14px;
@@ -979,7 +1078,6 @@ main {
 
   @media only screen and (max-width: 768px) {
     padding: 40px 0;
-
 
 
     .support-card-top {
