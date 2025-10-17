@@ -1,4 +1,37 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    // logo scrollers
+    const scrollers = document.querySelectorAll(".scroller");
+
+    // Если пользователь не выбрал уменьшенное движение, добавляем анимацию
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        addAnimation();
+    }
+
+    function addAnimation() {
+        scrollers.forEach((scroller) => {
+            // добавляем data-animated="true" ко всем элементам .scroller на странице
+            scroller.setAttribute("data-animated", true);
+
+            // создаем массив из элементов внутри .scroller-inner
+            const scrollerInner = scroller.querySelector(".scroller__inner");
+            const scrollerContent = Array.from(scrollerInner.children);
+
+            // Для каждого элемента в массиве клонируем его и добавляем три копии
+            scrollerContent.forEach((item) => {
+                const duplicatedItem = item.cloneNode(true);
+                duplicatedItem.setAttribute("aria-hidden", true);
+                scrollerInner.appendChild(duplicatedItem.cloneNode(true)); // первая копия
+            });
+        });
+    }
+
+
+
+
+
+
+
 //mobile menu
 const buttonMobileMenu = document.querySelector('.button-mobile-menu');
 const mobileContent = document.querySelector('.mobile-content');
