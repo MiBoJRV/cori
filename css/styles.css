@@ -637,6 +637,169 @@ main {
   margin: 0 auto;
 }
 
+.consultations-section {
+  padding: 60px 0;
+  background: #ebebeb;
+}
+@media only screen and (max-width: 768px) {
+  .consultations-section {
+    padding: 56px 0;
+    background: #fff;
+  }
+}
+.consultations-section .consultations-container {
+  max-width: 1232px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+@media only screen and (max-width: 375px) {
+  .consultations-section .consultations-container {
+    padding: 0 16px;
+  }
+}
+.consultations-section .consultations-heading {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.17;
+  color: #000;
+  text-align: center;
+  margin: 0 auto 24px;
+}
+@media only screen and (max-width: 375px) {
+  .consultations-section .consultations-heading {
+    font-size: 30px;
+  }
+}
+.consultations-section .consultations-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 32px 24px;
+}
+@media only screen and (max-width: 991px) {
+  .consultations-section .consultations-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .consultations-section .consultations-row {
+    padding: 0;
+    border-radius: 0;
+  }
+}
+.consultations-section .consultations-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+@media only screen and (max-width: 768px) {
+  .consultations-section .consultations-wrap {
+    flex-direction: column;
+  }
+}
+.consultations-section .consultations-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 562px;
+  margin-top: 24px;
+}
+@media only screen and (max-width: 375px) {
+  .consultations-section .consultations-content {
+    max-width: 344px;
+    padding: 18px;
+    margin-top: 16px;
+  }
+}
+.consultations-section .consultations-collage {
+  margin-top: 55px;
+  overflow: hidden;
+}
+@media only screen and (max-width: 480px) {
+  .consultations-section .consultations-collage img {
+    height: 93px;
+  }
+}
+.consultations-section .consultations-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: #363636;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  max-width: 100px;
+  height: 22px;
+}
+.consultations-section .consultations-title {
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.18;
+  color: #000;
+  max-width: 391px;
+}
+.consultations-section .consultations-text {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.18;
+  color: #000;
+  max-width: 421px;
+}
+.consultations-section .consultations-sub {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.21;
+  color: #000;
+}
+.consultations-section .consultations-sub span {
+  color: #f67c1e;
+}
+.consultations-section .consultations-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 32px;
+  background: #cd2a2a;
+  color: #fff;
+  border-radius: 99px;
+  max-width: 184px;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  gap: 8px;
+}
+.consultations-section .consultations-image {
+  width: 100%;
+  max-width: 612px;
+  height: auto;
+}
+.consultations-section .consultations-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+@media only screen and (max-width: 768px) {
+  .consultations-section .consultations-image img {
+    content: url("../images/consultations-mobile.png");
+  }
+}
+
 .news-carousel {
   padding: 60px 0;
   background: #fff;
@@ -780,6 +943,9 @@ main {
 .support-section .support-card {
   background: #fff;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .support-section .support-card-top {
   display: flex;
@@ -833,15 +999,22 @@ main {
   }
 }
 .support-section .support-text {
+  max-width: 624px;
+  width: 100%;
+}
+.support-section .support-text p {
   font-weight: 400;
   font-size: 18px;
   color: #282828;
   margin-bottom: 24px;
 }
 @media only screen and (max-width: 768px) {
-  .support-section .support-text {
+  .support-section .support-text p {
     font-size: 14px;
   }
+}
+.support-section .support-text p span {
+  font-weight: 700;
 }
 .support-section .support-btn {
   display: inline-flex;
@@ -853,7 +1026,6 @@ main {
   color: #fff;
   border-radius: 99px;
   max-width: 120px;
-  margin-bottom: 49px;
 }
 @media only screen and (max-width: 768px) {
   .support-section .support-btn {
@@ -865,6 +1037,15 @@ main {
     font-weight: 700;
     font-family: Inter, sans-serif;
     margin-bottom: 0;
+  }
+}
+.support-section .support-image {
+  max-width: 486px;
+  width: 100%;
+}
+@media only screen and (max-width: 991px) {
+  .support-section .support-image {
+    max-width: 100%;
   }
 }
 .support-section .support-image img {

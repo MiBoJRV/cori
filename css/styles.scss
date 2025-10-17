@@ -818,6 +818,180 @@ main {
 
 }
 
+.consultations-section {
+  padding: 60px 0;
+  background: $light-grey;
+
+  @media only screen and (max-width: 768px) {
+    padding: 56px 0;
+
+    background: $white;
+  }
+
+  .consultations-container {
+    max-width: 1232px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    @media only screen and (max-width: 375px) {
+      padding: 0 16px;
+    }
+  }
+
+  .consultations-heading {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.17;
+    color: $black;
+    text-align: center;
+    margin: 0 auto 24px;
+
+    @media only screen and (max-width: 375px) {
+      font-size: 30px;
+    }
+  }
+
+  .consultations-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background: $white;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 32px 24px;
+
+    @media only screen and (max-width: 991px) {
+      flex-direction: column;
+      align-items: stretch;
+
+    }
+
+    @media only screen and (max-width: 768px) {
+      padding: 0;
+      border-radius: 0;
+    }
+  }
+
+  .consultations-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+
+    @media only screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .consultations-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    //padding: 24px;
+    max-width: 562px;
+    margin-top: 24px;
+
+    @media only screen and (max-width: 375px) {
+      max-width: 344px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+  }
+
+  .consultations-collage {
+    margin-top: 55px;
+    overflow: hidden;
+    img {
+      @media only screen and (max-width: 480px) {
+        height: 93px;
+      }
+    }
+
+
+  }
+
+  .consultations-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    border-radius: 99px;
+    background: $main-gray;
+    color: $white;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    max-width: 100px;
+    height: 22px;
+  }
+
+  .consultations-title {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.18;
+    color: $black;
+    max-width: 391px;
+  }
+
+  .consultations-text {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.18;
+    color: $black;
+    max-width: 421px;
+  }
+
+  .consultations-sub {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.21;
+    color: $black;
+
+    span {
+      color: #f67c1e;;
+    }
+  }
+
+  .consultations-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 32px;
+    background: $brand-color;
+    color: $white;
+    border-radius: 99px;
+    max-width: 184px;
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    gap: 8px;
+  }
+
+  .consultations-image {
+    width: 100%;
+    max-width: 612px;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+
+      @media only screen and (max-width: 768px) {
+        content: url("../images/consultations-mobile.png");
+      }
+    }
+  }
+}
+
 .news-carousel {
   padding: 60px 0;
   background: $white;
@@ -974,6 +1148,9 @@ main {
     background: $white;
     //border-radius: 16px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .support-card-top {
@@ -1035,14 +1212,26 @@ main {
   }
 
   .support-text {
-    font-weight: 400;
-    font-size: 18px;
-    color: $background-gray;
-    margin-bottom: 24px;
+    max-width: 624px;
+    width: 100%;
 
-    @media only screen and (max-width: 768px) {
-      font-size: 14px;
+    p {
+      font-weight: 400;
+      font-size: 18px;
+      color: $background-gray;
+      margin-bottom: 24px;
+
+      @media only screen and (max-width: 768px) {
+        font-size: 14px;
+      }
+
+      span {
+        font-weight: 700;
+      }
+
     }
+
+
   }
 
   .support-btn {
@@ -1055,7 +1244,7 @@ main {
     color: $white;
     border-radius: 99px;
     max-width: 120px;
-    margin-bottom: 49px;
+    //margin-bottom: 49px;
 
     @media only screen and (max-width: 768px) {
       height: 40px;
@@ -1070,6 +1259,13 @@ main {
   }
 
   .support-image {
+    max-width: 486px;
+    width: 100%;
+
+    @media only screen and (max-width: 991px) {
+      max-width: 100%;
+    }
+
     img {
       height: 100%;
       width: 100%;
