@@ -554,6 +554,10 @@ header .content .button-survey a:active {
 .banner .logo-slider {
   display: flex;
   align-items: center;
+  max-width: 1408px;
+  padding: 0 16px;
+  margin: 0 auto;
+  overflow: hidden;
   /* for testing purposes to ensure the animation lined up correctly */
 }
 .banner .logo-slider .logo-slider-wrap {
@@ -631,11 +635,169 @@ header .content .button-survey a:active {
 main {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 30px;
+}
+
+.support-section {
+  padding: 80px 0;
+  background: #ebebeb;
+}
+@media only screen and (max-width: 768px) {
+  .support-section {
+    padding: 56px 0;
+  }
+}
+.support-section .support-wrap {
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
 }
 @media only screen and (max-width: 991px) {
-  main {
-    padding: 0 5px;
+  .support-section .support-wrap {
+    flex-direction: column;
+  }
+}
+.support-section .support-container {
+  max-width: 1232px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.support-section .support-title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.2;
+  color: #282828;
+  text-align: center;
+  max-width: 587px;
+  margin: 0 auto 8px;
+}
+@media only screen and (max-width: 768px) {
+  .support-section .support-title {
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    color: #282828;
+    margin: 0 auto 16px;
+  }
+}
+.support-section .support-legal {
+  font-weight: 400;
+  font-size: 14px;
+  color: #282828;
+  opacity: 0.5;
+  text-align: center;
+  margin: 0 auto 40px;
+  max-width: 587px;
+}
+.support-section .support-card {
+  background: #fff;
+  overflow: hidden;
+}
+.support-section .support-card-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #363636;
+  padding: 20px;
+}
+.support-section .support-icon {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.support-section .support-statement {
+  color: #fff;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.18;
+  font-style: italic;
+}
+.support-section .support-statement span {
+  font-weight: 700;
+}
+.support-section .support-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.support-section .support-text-strong {
+  max-width: 624px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 768px) {
+  .support-section .support-text-strong {
+    max-width: none;
+  }
+}
+.support-section .support-text-strong h4 {
+  font-weight: 700;
+  font-size: 24px;
+  color: #282828;
+  opacity: 0.8;
+}
+@media only screen and (max-width: 768px) {
+  .support-section .support-text-strong h4 {
+    font-size: 18px;
+  }
+}
+.support-section .support-text {
+  font-weight: 400;
+  font-size: 18px;
+  color: #282828;
+  margin-bottom: 24px;
+}
+@media only screen and (max-width: 768px) {
+  .support-section .support-text {
+    font-size: 14px;
+  }
+}
+.support-section .support-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 16px;
+  background: #cd2a2a;
+  color: #fff;
+  border-radius: 99px;
+  max-width: 120px;
+  margin-bottom: 49px;
+}
+@media only screen and (max-width: 768px) {
+  .support-section .support-btn {
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 90.552px;
+    max-width: 120px;
+    font-size: 14.63px;
+    font-weight: 700;
+    font-family: Inter, sans-serif;
+    margin-bottom: 0;
+  }
+}
+.support-section .support-image img {
+  height: 100%;
+  width: 100%;
+}
+@media only screen and (max-width: 768px) {
+  .support-section {
+    padding: 40px 0;
+  }
+  .support-section .support-card-top {
+    gap: 14px;
+    padding: 18px;
+  }
+  .support-section .support-icon {
+    width: 51.22px;
+    height: 51.22px;
+    flex: 0 0 51.22px;
+  }
+  .support-section .support-statement {
+    font-size: 14.6346664429px;
   }
 }
 

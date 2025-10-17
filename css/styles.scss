@@ -699,6 +699,10 @@ header {
     //height: 83px;
     display: flex;
     align-items: center;
+    max-width: 1408px;
+    padding: 0 16px;
+    margin: 0 auto;
+    overflow: hidden;
 
     .logo-slider-wrap {
       position: relative;
@@ -810,12 +814,189 @@ header {
 main {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 30px;
+  //padding: 0 30px;
 
-  @media only screen and (max-width: 991px) {
-    padding: 0 5px;
+}
+
+.support-section {
+  padding: 80px 0;
+  background: $light-grey;
+  
+  @media only screen and (max-width: 768px) {
+    padding: 56px 0;
   }
 
+  .support-wrap {
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    
+    @media only screen and (max-width: 991px) {
+    flex-direction: column;
+    }
+  }
+
+  .support-container {
+    max-width: 1232px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .support-title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    color: $background-gray;
+    text-align: center;
+    max-width: 587px;
+    margin: 0 auto 8px;
+    
+    @media only screen and (max-width: 768px) {
+      font-weight: 700;
+      font-size: 30px;
+      text-align: center;
+      color: $background-gray;
+      margin: 0 auto 16px;
+    }
+  }
+
+  .support-legal {
+    font-weight: 400;
+    font-size: 14px;
+    color: $background-gray;
+    opacity: 0.5;
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 587px;
+  }
+
+  .support-card {
+    background: $white;
+    //border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .support-card-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: $main-gray;
+    padding: 20px;
+  }
+
+  .support-icon {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .support-statement {
+    color: $white;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.18;
+
+    font-style: italic;
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  .support-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .support-text-strong {
+
+    max-width: 624px;
+    width: 100%;
+    margin-bottom: 10px;
+    
+    @media only screen and (max-width: 768px) {
+      max-width: none;
+    }
+
+    h4 {
+      font-weight: 700;
+      font-size: 24px;
+      color: $background-gray;
+      opacity: 0.8;
+      
+      @media only screen and (max-width: 768px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .support-text {
+    font-weight: 400;
+    font-size: 18px;
+    color: $background-gray;
+    margin-bottom: 24px;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+
+  .support-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 16px;
+    background: $brand-color;
+    color: $white;
+    border-radius: 99px;
+    max-width: 120px;
+    margin-bottom: 49px;
+    
+    @media only screen and (max-width: 768px) {
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 90.552px;
+      max-width: 120px;
+      font-size: 14.63px;
+      font-weight: 700;
+      font-family: Inter, sans-serif;
+      margin-bottom: 0;
+    }
+  }
+
+  .support-image {
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    padding: 40px 0;
+
+
+
+    .support-card-top {
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .support-icon {
+      width: 51.22px;
+      height: 51.22px;
+      flex: 0 0 51.22px;
+    }
+
+    .support-statement {
+      font-size: 14.6346664429px;
+    }
+  }
 }
 
 .services-section {
