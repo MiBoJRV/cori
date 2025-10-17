@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 /*colors*/
 $red: #FF0000;
 $red-hover: #FF0000D6;
@@ -11,6 +10,14 @@ $blue: #004570;
 //$red-hover: rgba(254, 190, 16, 0.84);
 //$red: #003da5;
 $green: #016D7C;
+$background-gray: #282828;
+$brand-color: #cd2a2a;
+
+$gray: #c8c8c7;
+$brand-color: #cd2a2a;
+$main-gray: #363636;
+$white: #fff;
+$light-grey: #ebebeb;
 
 
 * {
@@ -18,7 +25,7 @@ $green: #016D7C;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   list-style: none;
   text-decoration: none;
   //outline: 1px solid red;
@@ -26,12 +33,12 @@ $green: #016D7C;
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
+  color: $background-gray;
 }
 
 
 body {
   position: relative;
-  background: #eff8ff;
 }
 
 //mobile menu
@@ -195,7 +202,7 @@ body {
 
 header {
   backdrop-filter: blur(24px);
-  background: $white;
+  background: $main-gray;
   position: relative;
   z-index: 99;
 
@@ -366,18 +373,15 @@ header {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  //padding-bottom: 40px;
 
   @media only screen and (max-width: 991px) {
     padding-bottom: 0;
   }
 
-  .background {
-    position: absolute;
+  .banner-image {
     width: 100%;
-    height: 100%;
-    right: 0;
-    max-width: 760px;
+    height: auto;
+    max-width: 690px;
 
     @media only screen and (max-width: 991px) {
       max-height: 1172px;
@@ -386,9 +390,9 @@ header {
 
     img {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
-      max-width: 760px;
+      max-width: 690px;
     }
   }
 
@@ -403,20 +407,6 @@ header {
       gap: 112px;
     }
 
-    .banner-trust {
-      display: flex;
-      align-items: flex-end;
-      gap: 20px;
-
-      @media only screen and (max-width: 991px) {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      img {
-        height: 40px;
-      }
-    }
 
     p {
       margin: 0;
@@ -426,13 +416,15 @@ header {
   &-content {
     position: relative;
     z-index: 10;
-    max-width: 1440px;
+    max-width: 1232px;
     width: 100%;
     margin: 0 auto;
-    //padding: 0 40px 0;
+    padding: 0 16px;
+    gap: 20px;
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     //@media only screen and (max-width: 991px) {
     //  padding: 0 15px 0;
@@ -440,77 +432,40 @@ header {
 
     @media only screen and (max-width: 768px) {
       flex-direction: column;
-      gap: 28px;
       align-items: center;
       padding: 0;
-      background: #016D7C;
+      gap: 0;
     }
 
     .banner-text {
-      max-width: 680px;
-      width: 100%;
-      background: $green;
-      padding: 100px 20px 0 176px;
-
-      @media only screen and (max-width: 1199px) {
-        padding: 100px 20px 0 20px;
-        max-width: 580px;
-      }
+      max-width: 510px;
+      min-width: 386px;
 
       @media only screen and (max-width: 991px) {
-        padding: 51px 15px 0;
-        margin-left: 0;
-        max-width: 505px;
+        padding: 40px 16px 50px 16px;
+
       }
 
       @media only screen and (max-width: 768px) {
         margin-top: 13px;
+        min-width: auto;
       }
     }
 
-    .banner-trust {
-      display: flex;
-      align-items: flex-end;
-      gap: 20px;
-      margin-bottom: 47px;
-      padding-right: 20px;
-
-      @media only screen and (max-width: 991px) {
-        flex-direction: column;
-        align-self: flex-end;
-        align-items: flex-start;
-
-      }
-
-      @media only screen and (max-width: 768px) {
-        align-self: center;
-        margin-bottom: 28px;
-      }
-
-      p {
-        margin-bottom: 0;
-        font-weight: 400;
-        font-size: 22px;
-        line-height: 118%;
-        color: #fff;
-      }
-    }
 
     h1 {
-      max-width: 902px;
+      max-width: 386px;
+      margin-bottom: 24px;
       width: 100%;
-      margin-bottom: 20px;
-
-      font-weight: 500;
-      font-size: 40px;
-      line-height: 115%;
-      color: #fff;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 100%;
+      color: $background-gray;
 
       @media only screen and (max-width: 991px) {
-        font-size: 37px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 135%;
+        font-weight: 700;
+        font-size: 36px;
+        color: $background-gray;
       }
 
       br {
@@ -540,6 +495,26 @@ header {
       }
     }
 
+    ul {
+      padding: 0 0 0 30px;
+      margin-bottom: 24px;
+
+      li {
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: -0.01em;
+        color: $background-gray;
+        list-style: disc;
+
+        @media only screen and (max-width: 768px) {
+          font-weight: 400;
+          font-size: 14px;
+          letter-spacing: -0.01em;
+          color: $background-gray;
+        }
+      }
+    }
+
     p {
       font-weight: 400;
       font-size: 22px;
@@ -558,27 +533,30 @@ header {
     }
 
     .button-survey {
-      padding-bottom: 50px;
+      //padding-bottom: 50px;
 
       @media only screen and (max-width: 768px) {
-        padding-bottom: 38px;
+        //padding-bottom: 38px;
       }
 
       a {
-        border-radius: 10px;
-        padding: 10px 14px;
-        width: 219px;
-        height: 48px;
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: 700;
-        color: #fff;
-        background: $red;
+        background: $brand-color;
         text-decoration: none;
 
-        font-size: 20px;
-        line-height: 80%;
+        line-height: 100%;
+
+
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+        color: $white;
+        max-width: 282px;
+        width: 100%;
+        padding: 6.5px 8px;
 
         &:hover {
           background: $red-hover;
@@ -1111,7 +1089,6 @@ main {
 .contact-help2 {
   padding: 40px;
   background: $green;
-
 
 
   @media only screen and (max-width: 991px) {
