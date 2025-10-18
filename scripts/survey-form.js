@@ -302,14 +302,14 @@ document.addEventListener('DOMContentLoaded', function () {
         let offerWin = null;
 
         const data = {
-            ApiKey: 'TVRRMk5USmZOelkyWHpFME5qVXlYdz09',
-            ApiPassword: 'jDytrBCZ13',
-            CampaignID: '19426',
+            ApiKey: 'TVRRNE9ETmZOelkyWHpFME9EZ3pYdz09',
+            ApiPassword: 'D3l069fwxV',
+            CampaignID: '19654',
             FirstName: formData.first_name,
             LastName: formData.last_name,
             Email: formData.email,
             PhoneNumber: formData.phone,
-            Page: 'CoinShield-student',
+            Page: 'Corina Survey',
             Description: `Survey Results:\nActivity: ${formData.activity}\nIncident Time: ${formData.incident_time}\nMonetary Loss: ${formData.monetary_loss}\nEmployment Status: ${formData.employment_status}\nAge Group: ${formData.age_group}\nFund Source: ${formData.fund_source}`
         };
 

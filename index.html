@@ -319,7 +319,76 @@
             </div>
         </section>
 
+        <section class="contact-section" id="contact-form-section">
+            <div class="contact-section-container">
+                <h2 class="contact-section-title">
+                    Not sure if your case is under our jurisdiction or already handled by another organization?
+                </h2>
+                
+                <div class="contact-section-content">
+                    <div class="contact-form-wrapper">
+                        <div class="contact-form-header">
+                            <h3>Get a free assessment of your case or a second opinion from CORI</h3>
+                        </div>
+                        
+                        <form class="contact-form" id="contactForm" novalidate>
+                            <div class="form-group">
+                                <input type="text" name="first_name" placeholder="First name and Last name*" required>
+                            </div>
+                            
+                            <div class="form-group phone-group">
+                                <input type="tel" name="phone" id="phone" placeholder="xx xxx xxxx*" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Email*" required>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" name="privacy_policy" id="privacy_policy" required>
+                                <label for="privacy_policy">
+                                    I have read and agree to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Submit</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-map">
+                        <div class="map-card">
 
+                            <div class="map-location">
+                                <div class="location-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5S14.5 7.62 14.5 9S13.38 11.5 12 11.5Z" fill="white"/>
+                                    </svg>
+                                </div>
+                                <p>Toronto-Dominion Centre - 66 Wellington Street West, Toronto, ON M5K 1A2, Canada. td.com</p>
+                            </div>
+                            <div class="map-image">
+                                <img src="images/map-toronto.png" alt="Toronto Office Map">
+                            </div>
+                        </div>
+                        
+                        <div class="map-card">
+
+                            <div class="map-location">
+                                <div class="location-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5S14.5 7.62 14.5 9S13.38 11.5 12 11.5Z" fill="white"/>
+                                    </svg>
+                                </div>
+                                <p>Bentall Centre - 505 Burrard St, Vancouver, BC V7X 1M5</p>
+                            </div>
+                            <div class="map-image">
+                                <img src="images/map-vancouver.png" alt="Vancouver Office Map">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <div class="contact" id="contact-survey">
             <div class="contact-help2">
@@ -746,6 +815,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/css/intlTelInput.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/js/intlTelInput.min.js"></script>
+<script src="scripts/contact-form.js"></script>
 
 
 </body>
