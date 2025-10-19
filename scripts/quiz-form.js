@@ -60,16 +60,47 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const validators = {
-        first_name: (value) => (value.trim().length >= 2 ? '' : 'Must be at least 2 characters'),
-        email: (value) => (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Enter a valid email'),
-        phone: () => (itiSurvey && itiSurvey.isValidNumber() ? '' : 'Enter a valid phone number'),
+        first_name: (value) => {
+            const trimmed = value.trim();
+            if (trimmed.length < 2) return 'Must be at least 2 characters long';
+            if (!trimmed.includes(' ')) return 'Please enter both first and last name';
+            return '';
+        },
+        email: (value) => (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Please enter a valid email address'),
+        phone: () => {
+            if (!itiSurvey) return 'Phone initialization failed';
+            if (!phoneInput || !phoneInput.value.trim()) return 'Phone number is required';
+            return itiSurvey.isValidNumber() ? '' : 'Please enter a valid phone number';
+        },
+        privacy_policy: (checked) => (checked ? '' : 'You must agree to the Privacy Policy'),
     };
+
+    function isStep5Valid() {
+        const firstName = surveyForm.querySelector('input[name="first_name"]');
+        const email = surveyForm.querySelector('input[name="email"]');
+        const phone = surveyForm.querySelector('input[name="phone"]');
+        const privacy = surveyForm.querySelector('input[name="privacy_policy"]');
+        if (!firstName || !email || !phone || !privacy) return false;
+        const fnErr = validators.first_name(firstName.value);
+        const emErr = validators.email(email.value);
+        const phErr = validators.phone();
+        const ppErr = validators.privacy_policy(privacy.checked);
+        return !fnErr && !emErr && !phErr && !ppErr;
+    }
+
+    function updateSubmitState() {
+        if (currentStep === 5) {
+            const isValid = isStep5Valid();
+            nextStepBtn.disabled = !isValid;
+            return;
+        }
+        nextStepBtn.disabled = false;
+    }
 
     function validateCurrentStep() {
         const currentStepElement = document.querySelector(`[data-step="${currentStep}"]`);
         if (!currentStepElement) return true;
 
-        // Steps 1-4: require a radio selected
         if (currentStep >= 1 && currentStep <= 4) {
             const checked = currentStepElement.querySelector('input[type="radio"]:checked');
             if (!checked) {
@@ -79,13 +110,13 @@ document.addEventListener('DOMContentLoaded', function () {
             return true;
         }
 
-        // Step 5: validate inputs
         if (currentStep === 5) {
             clearSurveyError();
             let ok = true;
             const firstName = surveyForm.querySelector('input[name="first_name"]');
             const email = surveyForm.querySelector('input[name="email"]');
             const phone = surveyForm.querySelector('input[name="phone"]');
+            const privacy = surveyForm.querySelector('input[name="privacy_policy"]');
 
             const fnErr = validators.first_name(firstName.value);
             if (fnErr) { showFieldError(firstName, fnErr); ok = false; } else { clearFieldError(firstName); }
@@ -96,6 +127,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const phErr = validators.phone();
             if (phErr) { showFieldError(phone, phErr); ok = false; } else { clearFieldError(phone); }
 
+            const ppErr = validators.privacy_policy(privacy.checked);
+            if (ppErr) { showSurveyError(ppErr); ok = false; }
+
+            updateSubmitState();
             return ok;
         }
 
@@ -108,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function () {
             step.style.display = parseInt(step.dataset.step, 10) === currentStep ? 'block' : 'none';
         });
 
-        // Update step counter - only show for steps 1-4
         if (currentStep >= 1 && currentStep <= 4) {
             quantitySpan.textContent = `${currentStep}/4`;
             quantitySpan.style.display = 'block';
@@ -116,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
             quantitySpan.style.display = 'none';
         }
 
-        // Handle back button visibility
         if (currentStep === 1) {
             backStepBtn.style.display = 'none';
         } else if (currentStep >= 2 && currentStep <= 4) {
@@ -125,16 +158,17 @@ document.addEventListener('DOMContentLoaded', function () {
             backStepBtn.style.display = 'none';
         }
 
-        // Handle next button and navigation
         if (currentStep === 5) {
             if (nextStepLabel) nextStepLabel.textContent = 'Submit Survey';
             nextStepBtn.style.display = 'flex';
+            updateSubmitState();
         } else if (currentStep === 6) {
             nextStepBtn.style.display = 'none';
             backStepBtn.style.display = 'none';
         } else {
             if (nextStepLabel) nextStepLabel.textContent = 'Next';
             nextStepBtn.style.display = 'flex';
+            nextStepBtn.disabled = false;
         }
     }
 
@@ -156,12 +190,55 @@ document.addEventListener('DOMContentLoaded', function () {
         updateStepDisplay();
     });
 
-    // Add event listener for Back to Home button
     if (backToHomeBtn) {
         backToHomeBtn.addEventListener('click', function () {
             window.location.href = 'index.html';
         });
     }
+
+    const firstNameField = surveyForm.querySelector('input[name="first_name"]');
+    const emailField = surveyForm.querySelector('input[name="email"]');
+    const phoneField = surveyForm.querySelector('input[name="phone"]');
+    const privacyField = surveyForm.querySelector('input[name="privacy_policy"]');
+
+    function attachLiveValidation(field, validatorKey) {
+        if (!field) return;
+        field.addEventListener('input', function () {
+            if (currentStep !== 5) return;
+            const err = validators[validatorKey](validatorKey === 'privacy_policy' ? field.checked : field.value);
+            if (err) {
+                if (validatorKey === 'privacy_policy') {
+                    showSurveyError(err);
+                } else {
+                    showFieldError(field, err);
+                }
+            } else {
+                if (validatorKey !== 'privacy_policy') clearFieldError(field);
+                clearSurveyError();
+            }
+            updateSubmitState();
+        });
+        field.addEventListener('change', function () {
+            if (currentStep !== 5) return;
+            const err = validators[validatorKey](validatorKey === 'privacy_policy' ? field.checked : field.value);
+            if (err) {
+                if (validatorKey === 'privacy_policy') {
+                    showSurveyError(err);
+                } else {
+                    showFieldError(field, err);
+                }
+            } else {
+                if (validatorKey !== 'privacy_policy') clearFieldError(field);
+                clearSurveyError();
+            }
+            updateSubmitState();
+        });
+    }
+
+    attachLiveValidation(firstNameField, 'first_name');
+    attachLiveValidation(emailField, 'email');
+    attachLiveValidation(phoneField, 'phone');
+    attachLiveValidation(privacyField, 'privacy_policy');
 
     function submitForm() {
         const formData = {
@@ -206,20 +283,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     return;
                 }
 
-                // Open thank you page in new tab
                 let thankYouWin = window.open('thank-you.html', '_blank');
                 let offerWin = null;
 
-                // Store response data
                 localStorage.setItem('responseJson', JSON.stringify(json));
                 
-                // Open offer URL if available
                 if (json.url) {
                     offerWin = window.open(json.url, '_blank');
                     localStorage.removeItem('responseJson');
                 }
                 
-                // Focus on thank you window
                 if (thankYouWin) {
                     thankYouWin.focus();
                 }

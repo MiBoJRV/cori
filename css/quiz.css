@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+/*colors*/
 .body-content {
   background-color: #EBEBEB;
 }
@@ -54,6 +56,20 @@
   margin: 0;
 }
 
+.quiz-step[data-step="5"] .step-info {
+  text-align: center;
+}
+.quiz-step[data-step="5"] .step-info .step-title {
+  margin-bottom: 32px;
+}
+.quiz-step[data-step="5"] .step-info .step-description {
+  margin-bottom: 32px;
+  opacity: 0.5;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  color: #363636;
+}
 .quiz-step .step-info {
   margin-bottom: 32px;
 }
@@ -141,6 +157,10 @@
   border-color: #CD2A2A;
 }
 
+.contact-form {
+  max-width: 594px;
+  margin: 0 auto;
+}
 .contact-form .form-group {
   margin-bottom: 16px;
 }
@@ -228,6 +248,25 @@
 }
 .contact-form .form-group.checkbox-group label a:hover {
   text-decoration: underline;
+}
+.contact-form .iti__country-container {
+  top: 0;
+  left: 0px;
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid #EBEBEB;
+}
+.contact-form .iti input.iti__tel-input, .contact-form .iti input.iti__tel-input[type=text], .contact-form .iti input.iti__tel-input[type=tel] {
+  position: relative;
+  z-index: 0;
+  margin: 0 !important;
+  padding-left: 16px !important;
+}
+.contact-form .iti--inline-dropdown {
+  display: flex;
+  gap: 8px;
 }
 
 .thank-you-content {

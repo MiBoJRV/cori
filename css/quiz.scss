@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/*colors*/
+$red: #FF0000;
+$red-hover: #FF0000D6;
+$black: #000;
+$white: #FFF;
+$blue: #004570;
+//$red-hover: rgba(0, 69, 112, 0.84);
+//$red-hover: rgba(0, 69, 112, 0.84);
+//$red-hover: rgba(254, 190, 16, 0.84);
+//$red: #003da5;
+$green: #016D7C;
+$background-gray: #282828;
+$brand-color: #cd2a2a;
+
+$gray: #c8c8c7;
+$brand-color: #cd2a2a;
+$main-gray: #363636;
+$white: #fff;
+$light-grey: #ebebeb;
+
 .body-content {
   background-color: #EBEBEB;
 }
@@ -63,6 +84,25 @@
 }
 
 .quiz-step {
+
+  &[data-step="5"] {
+    .step-info {
+      text-align: center;
+
+      .step-title {
+        margin-bottom: 32px;
+      }
+
+      .step-description {
+        margin-bottom: 32px;
+        opacity: 0.5;
+        font-weight: 400;
+        font-size: 14px;
+        text-align: center;
+        color: $main-gray;
+      }
+    }
+  }
   .step-info {
     margin-bottom: 32px;
 
@@ -167,6 +207,10 @@
 
 // Contact Form Styles (Step 5)
 .contact-form {
+
+  max-width: 594px;
+  margin: 0 auto;
+
   .form-group {
     margin-bottom: 16px;
 
@@ -265,6 +309,28 @@
         }
       }
     }
+  }
+
+  .iti__country-container {
+    top: 0;
+    left: 0px;
+    position: relative;
+    background: #fff;
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid #EBEBEB;
+  }
+
+  .iti input.iti__tel-input, .iti input.iti__tel-input[type=text], .iti input.iti__tel-input[type=tel] {
+    position: relative;
+    z-index: 0;
+    margin: 0 !important;
+    padding-left: 16px !important;
+  }
+
+  .iti--inline-dropdown {
+    display: flex;
+    gap: 8px;
   }
 }
 
