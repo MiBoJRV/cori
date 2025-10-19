@@ -286,6 +286,7 @@
 .contact-form .iti--inline-dropdown {
   display: flex;
   gap: 8px;
+  width: 100%;
 }
 
 .thank-you-content {
