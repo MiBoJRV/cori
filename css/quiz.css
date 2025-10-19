@@ -132,6 +132,7 @@
 }
 .quiz-step .step-question .question-options .option-item input[type=radio]:checked + .radio-custom {
   border-color: #CD2A2A;
+  background: #CD2A2A;
 }
 .quiz-step .step-question .question-options .option-item input[type=radio]:checked + .radio-custom::after {
   opacity: 1;
@@ -285,6 +286,7 @@
   background: #FFFFFF;
   color: #282828;
   border: 1px solid #C8C8C7;
+  min-width: 56px;
 }
 .quiz-navigation .btn.btn-back:hover {
   background: #F5F5F5;

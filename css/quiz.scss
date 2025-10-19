@@ -150,6 +150,7 @@
 
         input[type="radio"]:checked + .radio-custom {
           border-color: #CD2A2A;
+          background: #CD2A2A;
 
           &::after {
             opacity: 1;
@@ -330,6 +331,7 @@
       background: #FFFFFF;
       color: #282828;
       border: 1px solid #C8C8C7;
+      min-width: 56px;
 
       &:hover {
         background: #F5F5F5;
