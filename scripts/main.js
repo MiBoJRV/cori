@@ -41,8 +41,10 @@ let isMobileMenuOpen = false;
 
 // Функція для відкриття/закриття мобільного меню
 function toggleMobileMenu() {
-    mobileContent.classList.toggle('open');
-    document.body.style.overflow = mobileContent.classList.contains('open') ? 'hidden' : '';
+    if (mobileContent) {
+        mobileContent.classList.toggle('open');
+        document.body.style.overflow = mobileContent.classList.contains('open') ? 'hidden' : '';
+    }
 }
 
 // Обробник кліку на кнопку мобільного меню
@@ -54,13 +56,17 @@ if (buttonMobileMenu) {
 }
 
 // Обробник кліку на посилання в мобільному меню
-mobileMenuLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-        toggleMobileMenu();
-        buttonMobileMenu.classList.remove('open');
-        document.body.style.overflow = ''; // Забираємо overflow: hidden
+if (mobileMenuLinks.length > 0) {
+    mobileMenuLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            toggleMobileMenu();
+            if (buttonMobileMenu) {
+                buttonMobileMenu.classList.remove('open');
+            }
+            document.body.style.overflow = ''; // Забираємо overflow: hidden
+        });
     });
-});
+}
 
     /*Tabs*/
 
