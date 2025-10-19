@@ -62,67 +62,6 @@ mobileMenuLinks.forEach(function (link) {
     });
 });
 
-// ------------
-
-    const surveyForm = document.getElementById("surveyForm");
-    const fieldsets = surveyForm.querySelectorAll(".survey__content");
-    const finalTab = surveyForm.querySelector(".survey__final-tab");
-    const nextButton = document.getElementById("nextStep");
-    const progressIndicator = surveyForm.querySelector(".survey__quantity");
-    const surveyErrorMessage = document.querySelector('.survey__error-message');
-
-    let currentStep = 0;
-
-    function showSurveyStepError(message) {
-        surveyErrorMessage.textContent = message;
-        surveyErrorMessage.style.display = 'block';
-    }
-
-    function clearSurveyStepError() {
-        surveyErrorMessage.textContent = '';
-        surveyErrorMessage.style.display = 'none';
-    }
-
-    const showStep = (step) => {
-        fieldsets.forEach((fieldset, index) => {
-            fieldset.style.display = index === step ? "block" : "none";
-        });
-        finalTab.style.display = step === fieldsets.length ? "block" : "none";
-        progressIndicator.textContent = `${step + 1}/${fieldsets.length + 1}`;
-
-        if (step === fieldsets.length) {
-            nextButton.style.display = "none";
-        } else {
-            nextButton.style.display = "inline-block";
-        }
-    };
-
-    nextButton.addEventListener("click", () => {
-        const inputs = fieldsets[currentStep]?.querySelectorAll("input:checked");
-        if (!inputs?.length) {
-            showSurveyStepError("Please select an option before proceeding.");
-            return;
-        }
-        if (currentStep < fieldsets.length) {
-            currentStep++;
-            showStep(currentStep);
-            clearSurveyStepError();
-        }
-    });
-
-    // Add radio button change handlers
-    fieldsets.forEach(fieldset => {
-        const radioButtons = fieldset.querySelectorAll('input[type="radio"]');
-        radioButtons.forEach(radio => {
-            radio.addEventListener('change', () => {
-                clearSurveyStepError();
-            });
-        });
-    });
-
-    showStep(currentStep);
-
-
     /*Tabs*/
 
         const tabBtns = document.querySelectorAll('.tab-btn');
