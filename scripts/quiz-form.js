@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const surveyForm = document.getElementById('surveyForm');
     const nextStepBtn = document.getElementById('nextStep');
     const backStepBtn = document.getElementById('backStep');
-    const quantitySpan = document.querySelector('.step-counter');
+    const quantitySpan = document.getElementById('stepCounter');
     const phoneInput = document.getElementById('phone-quiz');
     const errorMessageContainer = document.querySelector('.quiz-error-message');
+    const backToHomeBtn = document.getElementById('backToHome');
 
     surveyForm.setAttribute('novalidate', true);
 
@@ -106,12 +107,27 @@ document.addEventListener('DOMContentLoaded', function () {
             step.style.display = parseInt(step.dataset.step, 10) === currentStep ? 'block' : 'none';
         });
 
-        quantitySpan.textContent = `${currentStep}/${totalSteps}`;
+        // Update step counter - only show for steps 1-4
+        if (currentStep >= 1 && currentStep <= 4) {
+            quantitySpan.textContent = `${currentStep}/4`;
+            quantitySpan.style.display = 'block';
+        } else {
+            quantitySpan.style.display = 'none';
+        }
 
-        backStepBtn.style.display = currentStep === 1 ? 'none' : 'flex';
+        // Handle back button visibility
+        if (currentStep === 1) {
+            backStepBtn.style.display = 'none';
+        } else if (currentStep >= 2 && currentStep <= 4) {
+            backStepBtn.style.display = 'flex';
+        } else if (currentStep === 5 || currentStep === 6) {
+            backStepBtn.style.display = 'none';
+        }
 
+        // Handle next button and navigation
         if (currentStep === 5) {
             nextStepBtn.textContent = 'Submit Survey';
+            nextStepBtn.style.display = 'flex';
         } else if (currentStep === 6) {
             nextStepBtn.style.display = 'none';
             backStepBtn.style.display = 'none';
@@ -138,6 +154,13 @@ document.addEventListener('DOMContentLoaded', function () {
         clearSurveyError();
         updateStepDisplay();
     });
+
+    // Add event listener for Back to Home button
+    if (backToHomeBtn) {
+        backToHomeBtn.addEventListener('click', function () {
+            window.location.href = 'index.html';
+        });
+    }
 
     function submitForm() {
         const formData = {

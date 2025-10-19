@@ -22,12 +22,6 @@
             </div>
             <div class="quiz-form-wrapper">
                 <form class="quiz-form" id="surveyForm" novalidate>
-                    <div class="quiz-header">
-                        <h1 class="quiz-title">Complete Our Survey</h1>
-                        <p class="quiz-subtitle">Take the first step toward protecting your financial future by
-                            completing our short survey today.</p>
-                    </div>
-
                         <div class="quiz-content">
                             <!-- Step 1: What type of fraud have you encountered? -->
                             <div class="quiz-step" data-step="1">
@@ -242,6 +236,7 @@
                                 <div class="thank-you-content">
                                     <h2 class="thank-you-title">Thank you for your registration!</h2>
                                     <p class="thank-you-subtitle">Our colleague will contact you soon</p>
+                                    <button type="button" class="btn btn-home" id="backToHome">Back to Home</button>
                                 </div>
                             </div>
                         </div>
@@ -254,8 +249,11 @@
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </button>
-                            <button type="button" class="btn btn-next" id="nextStep">Next</button>
-                            <span class="step-counter">1/6</span>
+                            <button type="button" class="btn btn-next" id="nextStep">
+                                Next
+
+                            </button>
+                            <span class="step-counter" id="stepCounter">1/4</span>
                         </div>
 
                         <div class="quiz-error-message" style="display: none;"></div>
