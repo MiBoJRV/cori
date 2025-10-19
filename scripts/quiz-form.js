@@ -47,18 +47,21 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!errorDiv) {
             errorDiv = document.createElement('div');
             errorDiv.className = 'error-message';
-            errorDiv.style.cssText = 'color:#CD2A2A;font-size:12px;margin-top:5px;text-align:left;';
             wrapper.appendChild(errorDiv);
         }
         errorDiv.textContent = message;
-        field.style.borderColor = '#CD2A2A';
+        errorDiv.style.display = 'block';
+        field.classList.add('error');
     }
 
     function clearFieldError(field) {
         const wrapper = field.parentElement;
         const errorDiv = wrapper.querySelector('.error-message');
-        if (errorDiv) errorDiv.textContent = '';
-        field.style.borderColor = '';
+        if (errorDiv) {
+            errorDiv.textContent = '';
+            errorDiv.style.display = 'none';
+        }
+        field.classList.remove('error');
     }
 
     const validators = {

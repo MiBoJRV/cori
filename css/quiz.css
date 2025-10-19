@@ -163,6 +163,7 @@
 }
 .contact-form .form-group {
   margin-bottom: 16px;
+  position: relative;
 }
 .contact-form .form-group input[type=text],
 .contact-form .form-group input[type=email],
@@ -226,6 +227,7 @@
   align-items: center;
   gap: 8px;
   margin-top: 20px;
+  justify-content: center;
 }
 .contact-form .form-group.checkbox-group input[type=checkbox] {
   width: 20px;
@@ -371,6 +373,26 @@
   padding: 12px;
   background: rgba(205, 42, 42, 0.1);
   border-radius: 8px;
+}
+
+.error-message {
+  color: white;
+  background-color: #eb162b;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
+  text-align: left;
+  width: 100%;
+  position: absolute;
+  bottom: -16px;
+  z-index: 9;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.form-group input.error {
+  border-color: #eb162b !important;
+  box-shadow: 0 0 0 2px rgba(235, 22, 43, 0.2) !important;
 }
 
 @media (max-width: 768px) {
