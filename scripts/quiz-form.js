@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const phoneInput = document.getElementById('phone-quiz');
     const errorMessageContainer = document.querySelector('.quiz-error-message');
     const backToHomeBtn = document.getElementById('backToHome');
+    const nextStepLabel = document.getElementById('nextStepLabel');
 
     surveyForm.setAttribute('novalidate', true);
 
@@ -126,13 +127,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Handle next button and navigation
         if (currentStep === 5) {
-            nextStepBtn.textContent = 'Submit Survey';
+            if (nextStepLabel) nextStepLabel.textContent = 'Submit Survey';
             nextStepBtn.style.display = 'flex';
         } else if (currentStep === 6) {
             nextStepBtn.style.display = 'none';
             backStepBtn.style.display = 'none';
         } else {
-            nextStepBtn.textContent = 'Next';
+            if (nextStepLabel) nextStepLabel.textContent = 'Next';
             nextStepBtn.style.display = 'flex';
         }
     }
@@ -174,9 +175,9 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         const submitBtn = nextStepBtn;
-        const originalContent = submitBtn.innerHTML;
+        const originalLabel = nextStepLabel ? nextStepLabel.textContent : 'Next';
         submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Sending...';
+        if (nextStepLabel) nextStepLabel.textContent = 'Sending...';
 
         fetch('https://tracker.pablos.team/repost.php?act=register', {
             method: 'POST',
@@ -201,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (json.ret_code === '404') {
                     showSurveyError(json.ret_message || 'An error occurred. Please try again.');
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalContent;
+                    if (nextStepLabel) nextStepLabel.textContent = originalLabel;
                     return;
                 }
 
@@ -230,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error(err);
                 showSurveyError('An error occurred while sending your survey. Please try again later.');
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = originalContent;
+                if (nextStepLabel) nextStepLabel.textContent = originalLabel;
             });
     }
 
