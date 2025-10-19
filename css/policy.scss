@@ -46,6 +46,7 @@
         font-size: 20px;
         text-align: center;
         margin-bottom: 20px;
+        margin-top: 20px;
     }
 
     p {
@@ -55,11 +56,29 @@
         line-height: 1.5;
         letter-spacing: -0.0225em;
         color: #161616;
-        margin: 0 0 16px 0;
         text-align: left;
 
         &:last-child {
             margin-bottom: 0;
+        }
+    }
+
+    ul {
+        margin: 0 0 16px 0;
+        padding-left: 20px;
+
+        li {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -0.0225em;
+            color: #161616;
+            list-style: disc;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }
