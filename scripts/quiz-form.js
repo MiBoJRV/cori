@@ -1,54 +1,49 @@
 document.addEventListener('DOMContentLoaded', function () {
     const surveyForm = document.getElementById('surveyForm');
     const nextStepBtn = document.getElementById('nextStep');
-    const quantitySpan = document.querySelector('.survey__quantity');
-    const phoneInput = document.getElementById('phone-survey');
-    const errorMessageContainer = surveyForm.querySelector('.survey__error-message');
+    const backStepBtn = document.getElementById('backStep');
+    const quantitySpan = document.querySelector('.step-counter');
+    const phoneInput = surveyForm.querySelector('input[name="phone"]');
+    const errorMessageContainer = surveyForm.querySelector('.quiz-error-message');
 
     // Disable HTML5 validation
     surveyForm.setAttribute('novalidate', true);
 
     let currentStep = 1;
-    const totalSteps = 8;
+    const totalSteps = 6;
 
     // Initialize phone input
-    // const itiSurvey = window.intlTelInput(phoneInput, {
-    //     showFlags: true,
-    //     separateDialCode: true,
-    //     strictMode: true,
-    //     initialCountry: "ca",
-    //     countrySearch: false,
-    //     utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.1/build/js/utils.js"
-    // });
-
-    const itiSurvey = window.intlTelInput(phoneInput, {
-        loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/js/utils.js"),
-        initialCountry: "auto",
-        geoIpLookup: (success, failure) => {
-            fetch("https://ipapi.co/json")
-                .then((res) => res.json())
-                .then((data) => success(data.country_code))
-                .catch(() => failure());
-        },
-        strictMode: true,
-        separateDialCode: true,
-
-    });
-
-    setTimeout(() => {
-        const countryDropdownDivs = document.querySelectorAll('.survey__input-wrapper.phone .iti__country-container .iti__dropdown-content > div');
-        countryDropdownDivs.forEach(div => {
-            div.style.marginBottom = '10px';
+    let itiSurvey = null;
+    if (phoneInput) {
+        itiSurvey = window.intlTelInput(phoneInput, {
+            loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/js/utils.js"),
+            initialCountry: "auto",
+            geoIpLookup: (success, failure) => {
+                fetch("https://ipapi.co/json")
+                    .then((res) => res.json())
+                    .then((data) => success(data.country_code))
+                    .catch(() => failure());
+            },
+            strictMode: true,
+            separateDialCode: true,
         });
-    }, 100);
 
-    // Create error message elements for final step fields
-    const finalStepFields = surveyForm.querySelectorAll('.survey__final-tab input');
-    finalStepFields.forEach(field => {
+        setTimeout(() => {
+            const countryDropdownDivs = document.querySelectorAll('.phone-group .iti__country-container .iti__dropdown-content > div');
+            countryDropdownDivs.forEach(div => {
+                div.style.marginBottom = '10px';
+            });
+        }, 100);
+    }
+
+    // Create error message elements for contact form fields
+    const contactFormFields = surveyForm.querySelectorAll('.contact-form input');
+    contactFormFields.forEach(field => {
         const fieldWrapper = document.createElement('div');
         fieldWrapper.style.cssText = `
             margin-bottom: 20px;
             width: 100%;
+            position: relative;
         `;
 
         // Перемістити поле вводу у wrapper
@@ -59,17 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
         errorDiv.style.cssText = `
-            color: white;
-            background-color: #eb162b;
+            color: #CD2A2A;
             font-size: 12px;
             margin-top: 5px;
-            display: block;
+            display: none;
             text-align: left;
             width: 100%;
-            position: absolute;
-            bottom: 0;
-            z-index: 9;
-            display: flex;
         `;
         fieldWrapper.appendChild(errorDiv);
     });
@@ -91,9 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
         first_name: (value) => {
             return value.length >= 2 ? '' : 'Must be at least 2 characters long';
         },
-        last_name: (value) => {
-            return value.length >= 2 ? '' : 'Must be at least 2 characters long';
-        },
         email: (value) => {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(value) ? '' : 'Please enter a valid email address';
@@ -109,7 +96,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const errorDiv = field.parentNode.querySelector('.error-message');
         if (errorDiv) {
             errorDiv.textContent = message;
-            field.style.borderColor = 'red';
+            errorDiv.style.display = 'block';
+            field.style.borderColor = '#CD2A2A';
         }
     }
 
@@ -118,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const errorDiv = field.parentNode.querySelector('.error-message');
         if (errorDiv) {
             errorDiv.textContent = '';
+            errorDiv.style.display = 'none';
             field.style.borderColor = '';
         }
     }
@@ -193,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Add input event listeners for real-time validation
-    finalStepFields.forEach(field => {
+    contactFormFields.forEach(field => {
         field.addEventListener('input', function () {
             validateField(this);
         });
@@ -202,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update step display
     function updateStepDisplay() {
         const allSteps = document.querySelectorAll('[data-step]');
-        const surveyTitle = document.querySelector('.survey-title');
+        const quizHeader = document.querySelector('.quiz-header');
 
         allSteps.forEach(step => {
             if (parseInt(step.dataset.step) === currentStep) {
@@ -212,22 +201,32 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Hide survey title on step 8
-        if (surveyTitle) {
-            if (currentStep === 8) {
-                surveyTitle.style.display = 'none';
+        // Hide quiz header on step 6 (thank you)
+        if (quizHeader) {
+            if (currentStep === 6) {
+                quizHeader.style.display = 'none';
             } else {
-                surveyTitle.style.display = 'block';
+                quizHeader.style.display = 'block';
             }
         }
 
         quantitySpan.textContent = `${currentStep}/${totalSteps}`;
 
-        // Update button text on last step
-        if (currentStep >= 7) {
-            nextStepBtn.style.display = 'none';
+        // Update button visibility
+        if (currentStep === 1) {
+            backStepBtn.style.display = 'none';
         } else {
-            nextStepBtn.style.display = 'block';
+            backStepBtn.style.display = 'flex';
+        }
+
+        if (currentStep === 5) {
+            nextStepBtn.textContent = 'Submit Survey';
+        } else if (currentStep === 6) {
+            nextStepBtn.style.display = 'none';
+            backStepBtn.style.display = 'none';
+        } else {
+            nextStepBtn.textContent = 'Next';
+            nextStepBtn.style.display = 'flex';
         }
     }
 
@@ -238,15 +237,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let isValid = true;
 
-        // Для кроків з радіо-кнопками
-        if (currentStep < 7) {
+        // Для кроків з радіо-кнопками (1-4)
+        if (currentStep < 5) {
             const checkedInputs = currentStepElement.querySelectorAll('input:checked');
             if (!checkedInputs.length) {
                 showSurveyError('Please select an option before proceeding');
                 return false;
             }
-        } else if (currentStep === 7) {
-            // Для 7-го кроку з текстовими полями
+        } else if (currentStep === 5) {
+            // Для 5-го кроку з текстовими полями
             const inputs = currentStepElement.querySelectorAll('input[required]');
             inputs.forEach(input => {
                 if (!validateField(input)) {
@@ -254,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         }
-        // 8-й крок не потребує валідації
+        // 6-й крок (thank you) не потребує валідації
 
         return isValid;
     }
@@ -262,17 +261,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // Next step button handler
     nextStepBtn.addEventListener('click', function () {
         if (validateCurrentStep()) {
-            currentStep++;
+            if (currentStep === 5) {
+                // Submit form
+                submitForm();
+            } else {
+                currentStep++;
+                updateStepDisplay();
+                clearSurveyError();
+                clearFormError();
+            }
+        }
+    });
+
+    // Back step button handler
+    backStepBtn.addEventListener('click', function () {
+        if (currentStep > 1) {
+            currentStep--;
             updateStepDisplay();
             clearSurveyError();
             clearFormError();
         }
     });
 
-    // Form submission handler
-    surveyForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-
+    // Form submission function
+    function submitForm() {
         // Clear old error messages before validation
         clearFormError();
         clearSurveyError();
@@ -283,40 +295,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const emailField = surveyForm.querySelector('input[name="email"]');
         const firstNameField = surveyForm.querySelector('input[name="first_name"]');
-        const lastNameField = surveyForm.querySelector('input[name="last_name"]');
 
         const formData = {
-            activity: surveyForm.querySelector('input[name="activity"]:checked').value,
-            incident_time: surveyForm.querySelector('input[name="incident_time"]:checked').value,
-            monetary_loss: surveyForm.querySelector('input[name="monetary_loss"]:checked').value,
-            employment_status: surveyForm.querySelector('input[name="employment_status"]:checked').value,
-            age_group: surveyForm.querySelector('input[name="age_group"]:checked').value,
+            fraud_type: surveyForm.querySelector('input[name="fraud_type"]:checked').value,
+            residence_status: surveyForm.querySelector('input[name="residence_status"]:checked').value,
             fund_source: surveyForm.querySelector('input[name="fund_source"]:checked').value,
+            monetary_loss: surveyForm.querySelector('input[name="monetary_loss"]:checked').value,
             first_name: firstNameField.value.trim(),
-            last_name: lastNameField.value.trim(),
             email: emailField.value.trim(),
-            phone: itiSurvey.getNumber()
+            phone: itiSurvey ? itiSurvey.getNumber() : phoneInput.value.trim()
         };
 
         let thankYouWin = window.open('thank-you.html', '_blank');
         let offerWin = null;
 
         const data = {
-            ApiKey: 'TVRRMk5USmZOelkyWHpFME5qVXlYdz09',
-            ApiPassword: 'jDytrBCZ13',
-            CampaignID: '19426',
+            ApiKey: 'TVRRNE9ETmZOelkyWHpFME9EZ3pYdz09',
+            ApiPassword: 'D3l069fwxV',
+            CampaignID: '19654',
             FirstName: formData.first_name,
-            LastName: formData.last_name,
+            LastName: formData.first_name, // Using first_name for both since we only have one name field
             Email: formData.email,
             PhoneNumber: formData.phone,
-            Page: 'CoinShield-student',
-            Description: `Survey Results:\nActivity: ${formData.activity}\nIncident Time: ${formData.incident_time}\nMonetary Loss: ${formData.monetary_loss}\nEmployment Status: ${formData.employment_status}\nAge Group: ${formData.age_group}\nFund Source: ${formData.fund_source}`
+            Page: 'Corina Survey',
+            Description: `Survey Results:\nFraud Type: ${formData.fraud_type}\nResidence Status: ${formData.residence_status}\nFund Source: ${formData.fund_source}\nMonetary Loss: ${formData.monetary_loss}`
         };
 
-        const submitBtn = surveyForm.querySelector('.survey__btn');
+        const submitBtn = nextStepBtn;
         const originalContent = submitBtn.innerHTML;
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<div class="btn-content">Sending<span class="loader"></span></div>';
+        submitBtn.innerHTML = 'Sending...';
 
         fetch('https://tracker.pablos.team/repost.php?act=register', {
             method: 'POST',
@@ -350,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (thankYouWin) {
                         thankYouWin.focus();
                     }
-                    currentStep = 8;
+                    currentStep = 6;
                     updateStepDisplay();
                 }
             })
@@ -360,6 +368,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalContent;
             });
+    }
+
+    // Form submission handler (for direct form submission)
+    surveyForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        submitForm();
     });
 
     // Initialize first step

@@ -1,11 +1,30 @@
+.body-content {
+  background-color: #EBEBEB;
+}
+
 // Quiz Form Styles
 .quiz-container {
     min-height: 100vh;
     background-color: #EBEBEB;
     padding: 40px 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.quiz-logo {
+    position: absolute;
+    top: 64px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    
+    img {
+        width: 159px;
+        height: 55px;
+    }
 }
 
 .quiz-form-wrapper {
@@ -341,6 +360,15 @@
 
 // Mobile Responsive
 @media (max-width: 768px) {
+    .quiz-logo {
+        top: 44px;
+        
+        img {
+            width: 120px;
+            height: 40px;
+        }
+    }
+    
     .quiz-form {
         padding: 20px 16px;
         margin: 0 16px;
@@ -420,6 +448,15 @@
 }
 
 @media (max-width: 480px) {
+    .quiz-logo {
+        top: 20px;
+        
+        img {
+            width: 100px;
+            height: 35px;
+        }
+    }
+    
     .quiz-container {
         padding: 20px 0;
     }
