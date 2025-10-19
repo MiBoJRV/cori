@@ -331,6 +331,7 @@ $light-grey: #ebebeb;
   .iti--inline-dropdown {
     display: flex;
     gap: 8px;
+    width: 100%;
   }
 }
 
@@ -413,6 +414,10 @@ $light-grey: #ebebeb;
     color: #282828;
     opacity: 0.8;
   }
+}
+
+.quiz-navigation.centered {
+  justify-content: center;
 }
 
 // Error Message

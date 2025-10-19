@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const backToHomeBtn = document.getElementById('backToHome');
     const nextStepLabel = document.getElementById('nextStepLabel');
     const nextStepIcon = nextStepBtn ? nextStepBtn.querySelector('svg') : null;
+    const quizNav = document.querySelector('.quiz-navigation');
 
     surveyForm.setAttribute('novalidate', true);
 
@@ -162,14 +163,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentStep === 5) {
             if (nextStepLabel) nextStepLabel.textContent = 'Submit Survey';
             if (nextStepIcon) nextStepIcon.style.display = 'none';
+            if (quizNav) quizNav.classList.add('centered');
             nextStepBtn.style.display = 'flex';
             updateSubmitState();
         } else if (currentStep === 6) {
+            if (quizNav) quizNav.classList.remove('centered');
             nextStepBtn.style.display = 'none';
             backStepBtn.style.display = 'none';
         } else {
             if (nextStepLabel) nextStepLabel.textContent = 'Next';
             if (nextStepIcon) nextStepIcon.style.display = '';
+            if (quizNav) quizNav.classList.remove('centered');
             nextStepBtn.style.display = 'flex';
             nextStepBtn.disabled = false;
         }

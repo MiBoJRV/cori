@@ -267,6 +267,7 @@
 .contact-form .iti--inline-dropdown {
   display: flex;
   gap: 8px;
+  width: 100%;
 }
 
 .thank-you-content {
@@ -337,6 +338,10 @@
   line-height: 1.17;
   color: #282828;
   opacity: 0.8;
+}
+
+.quiz-navigation.centered {
+  justify-content: center;
 }
 
 .quiz-error-message {
