@@ -2325,8 +2325,30 @@ main {
       input[type="checkbox"] {
         width: 20px;
         height: 20px;
-        accent-color: #19BB31;
+        border: 1px solid #C8C8C7;
+        border-radius: 4px;
+        background: #FFFFFF;
         cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        transition: all 0.2s ease;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px rgba(25, 187, 49, 0.2);
+        }
+
+        &:checked {
+          background-color: #19BB31;
+          border-color: #19BB31;
+          background-image: url("data:image/svg+xml,%3Csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 6L6 11L15 1' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 14px 14px;
+        }
 
         @media only screen and (max-width: 768px) {
           width: 18px;
