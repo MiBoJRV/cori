@@ -309,7 +309,21 @@
   font-size: 32px;
   line-height: 1.21;
   color: #171515;
-  margin: 0;
+  margin: 0 0 29px 0;
+}
+.thank-you-content .btn-home {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  border-radius: 99px;
+  width: 176px;
+  height: 48px;
+  background: #282828;
+  cursor: pointer;
+}
+.thank-you-content .btn-home:hover {
+  text-decoration: underline;
 }
 
 .quiz-navigation {
@@ -440,12 +454,7 @@
     font-size: 20px;
   }
   .quiz-navigation {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .quiz-navigation .btn {
-    width: 100%;
-    max-width: 200px;
+    gap: 14px;
   }
 }
 @media (max-width: 480px) {

@@ -378,7 +378,26 @@ $light-grey: #ebebeb;
     font-size: 32px;
     line-height: 1.21;
     color: #171515;
-    margin: 0;
+    margin: 0 0 29px 0;
+  }
+
+  .btn-home {
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    color: $white;
+
+    border-radius: 99px;
+    //padding: 18px 16px;
+    width: 176px;
+    height: 48px;
+    background: $background-gray;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+
+    }
   }
 }
 
@@ -553,13 +572,13 @@ $light-grey: #ebebeb;
   }
 
   .quiz-navigation {
-    flex-direction: column;
-    gap: 16px;
+    //flex-direction: column;
+    gap: 14px;
 
-    .btn {
-      width: 100%;
-      max-width: 200px;
-    }
+    //.btn {
+    //  width: 100%;
+    //  max-width: 200px;
+    //}
   }
 }
 

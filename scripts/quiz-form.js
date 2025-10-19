@@ -261,6 +261,10 @@ document.addEventListener('DOMContentLoaded', function () {
             phone: itiSurvey ? itiSurvey.getNumber() : (phoneInput ? phoneInput.value.trim() : ''),
         };
 
+        const nameParts = formData.first_name.split(' ').filter(Boolean);
+        const firstNameOnly = nameParts[0] || '';
+        const lastNameOnly = nameParts.slice(1).join(' ');
+
         const submitBtn = nextStepBtn;
         const originalLabel = nextStepLabel ? nextStepLabel.textContent : 'Next';
         submitBtn.disabled = true;
@@ -273,8 +277,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 ApiKey: 'TVRRMk5USmZOelkyWHpFME5qVXlYdz09',
                 ApiPassword: 'jDytrBCZ13',
                 CampaignID: '19654',
-                FirstName: formData.first_name,
-                LastName: formData.first_name,
+                FirstName: firstNameOnly,
+                LastName: lastNameOnly,
                 Email: formData.email,
                 PhoneNumber: formData.phone,
                 Page: 'Corina Survey',
