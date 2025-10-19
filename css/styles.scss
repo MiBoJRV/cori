@@ -3748,3 +3748,194 @@ main {
   }
 }
 
+// Footer styles
+.footer {
+  background-color: $main-gray;
+  color: $white;
+  
+  .footer-main {
+    padding: 22px 120px;
+    max-width: 1440px;
+    margin: 0 auto;
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      
+      .footer-info {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-width: 520px;
+        
+        .footer-logo {
+          img {
+            width: 159px;
+            height: 55px;
+          }
+        }
+        
+        .footer-contact {
+          p,a {
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            line-height: 1.27;
+            color: $white;
+            margin-bottom: 8px;
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      
+      .footer-links {
+        display: flex;
+        gap: 40px;
+        min-width: 300px;
+        
+        .quick-links {
+          h3 {
+            font-family: "Inter", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.21;
+            color: $white;
+            margin-bottom: 16px;
+          }
+          
+          .links-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            
+            a {
+              font-family: "Roboto", sans-serif;
+              font-size: 16px;
+              line-height: 1.17;
+              color: $white;
+              text-decoration: none;
+              transition: opacity 0.3s ease;
+              
+              &:hover {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+        
+        .policies {
+
+          h3 {
+            font-family: "Inter", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.21;
+            color: #fff;
+            margin-bottom: 16px;
+            
+            @media only screen and (max-width: 768px) {
+              display: none;
+            }
+          }
+
+          &-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          }
+          
+          a {
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+            line-height: 1.21;
+            color: $white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .footer-bottom {
+    background-color: $background-gray;
+    padding: 14px 0;
+    
+    p {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      line-height: 1.21;
+      color: $white;
+      opacity: 0.5;
+      text-align: center;
+      max-width: 658px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footer-main {
+      padding: 32px 16px;
+      
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        
+        .footer-info {
+          align-items: center;
+          max-width: 343px;
+          
+          .footer-contact {
+            p {
+              text-align: center;
+            }
+          }
+        }
+        
+        .footer-links {
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+
+          @media only screen and (max-width: 768px) {
+            gap: 8px;
+          }
+          
+          .quick-links {
+            h3 {
+              text-align: center;
+            }
+            
+            .links-column {
+              align-items: center;
+              gap: 8px;
+            }
+          }
+          
+          .policies {
+            align-items: center;
+            gap: 8px;
+          }
+        }
+      }
+    }
+    
+    .footer-bottom {
+      p {
+        font-size: 10px;
+        padding: 0 17px;
+        max-width: 343px;
+      }
+    }
+  }
+}
+
