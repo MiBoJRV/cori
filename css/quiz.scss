@@ -1,0 +1,435 @@
+// Quiz Form Styles
+.quiz-container {
+    min-height: 100vh;
+    background-color: #EBEBEB;
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-form-wrapper {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.quiz-form {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 40px 96px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 40px;
+    
+    .quiz-title {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 1.17;
+        color: #282828;
+        margin-bottom: 8px;
+    }
+    
+    .quiz-subtitle {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.17;
+        color: #363636;
+        margin: 0;
+    }
+}
+
+.quiz-step {
+    .step-info {
+        margin-bottom: 32px;
+        
+        .step-title {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 1.17;
+            color: #282828;
+            margin-bottom: 8px;
+        }
+        
+        .step-description {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.17;
+            color: #363636;
+            margin: 0;
+        }
+    }
+    
+    .step-question {
+        .question-title {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1.17;
+            color: #000000;
+            margin-bottom: 16px;
+        }
+        
+        .question-options {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            
+            .option-item {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                cursor: pointer;
+                padding: 12px 0;
+                
+                input[type="radio"] {
+                    display: none;
+                }
+                
+                .radio-custom {
+                    width: 24px;
+                    height: 24px;
+                    border: 1px solid #C8C8C7;
+                    border-radius: 50%;
+                    background: #FFFFFF;
+                    position: relative;
+                    flex-shrink: 0;
+                    transition: all 0.3s ease;
+                    
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        background: #CD2A2A;
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    }
+                }
+                
+                .option-text {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 1.17;
+                    color: #282828;
+                    opacity: 0.8;
+                    flex: 1;
+                }
+                
+                input[type="radio"]:checked + .radio-custom {
+                    border-color: #CD2A2A;
+                    
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+                
+                &:hover .radio-custom {
+                    border-color: #CD2A2A;
+                }
+            }
+        }
+    }
+}
+
+// Contact Form Styles (Step 5)
+.contact-form {
+    .form-group {
+        margin-bottom: 16px;
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #EBEBEB;
+            border-radius: 16px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.17;
+            color: #282828;
+            background: #FFFFFF;
+            transition: border-color 0.3s ease;
+            
+            &::placeholder {
+                color: #282828;
+            }
+            
+            &:focus {
+                outline: none;
+                border-color: #CD2A2A;
+            }
+        }
+        
+        &.phone-group {
+            .phone-input-wrapper {
+                display: flex;
+                gap: 8px;
+                
+                .country-code {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 16px;
+                    border: 1px solid #EBEBEB;
+                    border-radius: 16px;
+                    background: #FFFFFF;
+                    min-width: 131px;
+                    
+                    .flag-icon {
+                        width: 44px;
+                        height: 25px;
+                        object-fit: cover;
+                        border-radius: 6px;
+                    }
+                    
+                    .country-code-text {
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 1.17;
+                        color: #282828;
+                    }
+                }
+                
+                input[type="tel"] {
+                    flex: 1;
+                }
+            }
+        }
+        
+        &.checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            
+            input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+                border: 1px solid #C8C8C7;
+                border-radius: 4px;
+                background: #FFFFFF;
+                cursor: pointer;
+            }
+            
+            label {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1.17;
+                color: #363636;
+                cursor: pointer;
+                
+                a {
+                    color: #CD2A2A;
+                    text-decoration: none;
+                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Thank You Step
+.thank-you-content {
+    text-align: center;
+    padding: 60px 0;
+    
+    .thank-you-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 1.21;
+        color: #171515;
+        margin-bottom: 29px;
+    }
+    
+    .thank-you-subtitle {
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 1.21;
+        color: #171515;
+        margin: 0;
+    }
+}
+
+// Navigation
+.quiz-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+    
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 18px 16px;
+        border-radius: 99px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.21;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        min-width: 152px;
+        height: 48px;
+        
+        &.btn-next {
+            background: #CD2A2A;
+            color: #FFFFFF;
+            
+            &:hover {
+                background: #B02525;
+            }
+        }
+        
+        &.btn-back {
+            background: #FFFFFF;
+            color: #282828;
+            border: 1px solid #C8C8C7;
+            
+            &:hover {
+                background: #F5F5F5;
+            }
+        }
+    }
+    
+    .step-counter {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 1.17;
+        color: #282828;
+        opacity: 0.8;
+    }
+}
+
+// Error Message
+.quiz-error-message {
+    color: #CD2A2A;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 16px;
+    padding: 12px;
+    background: rgba(205, 42, 42, 0.1);
+    border-radius: 8px;
+}
+
+// Mobile Responsive
+@media (max-width: 768px) {
+    .quiz-form {
+        padding: 20px 16px;
+        margin: 0 16px;
+    }
+    
+    .quiz-header {
+        .quiz-title {
+            font-size: 20px;
+        }
+        
+        .quiz-subtitle {
+            font-size: 14px;
+        }
+    }
+    
+    .quiz-step {
+        .step-info {
+            .step-title {
+                font-size: 20px;
+                text-align: center;
+            }
+            
+            .step-description {
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+        
+        .step-question {
+            .question-title {
+                font-size: 18px;
+            }
+            
+            .question-options {
+                .option-item {
+                    .option-text {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .contact-form {
+        .form-group {
+            &.phone-group {
+                .phone-input-wrapper {
+                    flex-direction: column;
+                    
+                    .country-code {
+                        min-width: auto;
+                    }
+                }
+            }
+        }
+    }
+    
+    .thank-you-content {
+        .thank-you-title {
+            font-size: 28px;
+        }
+        
+        .thank-you-subtitle {
+            font-size: 20px;
+        }
+    }
+    
+    .quiz-navigation {
+        flex-direction: column;
+        gap: 16px;
+        
+        .btn {
+            width: 100%;
+            max-width: 200px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-container {
+        padding: 20px 0;
+    }
+    
+    .quiz-form-wrapper {
+        padding: 0 8px;
+    }
+    
+    .quiz-form {
+        padding: 16px;
+        margin: 0 8px;
+    }
+}
