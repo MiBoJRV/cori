@@ -103,6 +103,7 @@ $light-grey: #ebebeb;
       }
     }
   }
+
   .step-info {
     margin-bottom: 32px;
 
@@ -352,6 +353,13 @@ $light-grey: #ebebeb;
   }
 
   .iti--inline-dropdown {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .iti {
+    position: relative;
     display: flex;
     gap: 8px;
     width: 100%;

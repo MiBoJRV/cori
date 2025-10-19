@@ -290,6 +290,12 @@
   gap: 8px;
   width: 100%;
 }
+.contact-form .iti {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
 
 .thank-you-content {
   text-align: center;
