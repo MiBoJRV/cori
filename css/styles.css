@@ -192,7 +192,6 @@ header .content .logo a img {
   }
 }
 header .content .menu {
-  max-width: 840px;
   width: 100%;
 }
 header .content .menu nav .ul {
@@ -231,7 +230,6 @@ header .content .menu nav .ul .nav-btn .button-survey a:hover {
   }
 }
 header .content .menu nav .ul .li {
-  width: 100%;
   text-align: center;
   position: relative;
   padding: 0;
