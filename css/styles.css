@@ -695,17 +695,6 @@ main {
     display: none;
   }
 }
-.testimonials-section .testimonials-gif .gif-mobile {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
-}
-@media only screen and (max-width: 768px) {
-  .testimonials-section .testimonials-gif .gif-mobile {
-    display: block;
-  }
-}
 .testimonials-section .testimonials-slider {
   flex: 1;
   display: flex;
