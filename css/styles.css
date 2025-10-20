@@ -3274,7 +3274,7 @@ h5 {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease, opacity 0.25s ease;
+  transition: max-height 0.55s ease, opacity 0.55s ease;
   padding: 0 28px;
 }
 .faq-section .faq-answer p {

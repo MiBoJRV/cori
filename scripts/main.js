@@ -447,55 +447,76 @@ if (mobileMenuLinks.length > 0) {
         const question = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
 
-        // Ensure starting state
-        if (!item.classList.contains('active')) {
-            if (answer) {
-                answer.style.maxHeight = '0px';
-            }
+        if (answer) {
+            answer.setAttribute('aria-hidden', item.classList.contains('active') ? 'false' : 'true');
+        }
+
+        function animateHeight(element, toHeight) {
+            const fromHeight = element.offsetHeight; // current rendered height
+            element.style.maxHeight = fromHeight + 'px';
+            // force reflow
+            void element.offsetHeight;
+            element.style.maxHeight = toHeight + 'px';
         }
 
         function closeItem(target) {
-            const targetAnswer = target.querySelector('.faq-answer');
-            if (!targetAnswer) return;
-            // Set explicit height to trigger transition from current height to 0
-            targetAnswer.style.maxHeight = targetAnswer.scrollHeight + 'px';
-            // Force reflow to apply current height before collapsing
-            void targetAnswer.offsetHeight;
-            target.classList.remove('active');
-            targetAnswer.style.maxHeight = '0px';
+            const panel = target.querySelector('.faq-answer');
+            if (!panel) return;
+            const fullHeight = panel.scrollHeight;
+            // If currently set to 'none', set to measured height first to enable transition
+            if (panel.style.maxHeight === 'none' || panel.style.maxHeight === '') {
+                panel.style.maxHeight = fullHeight + 'px';
+            }
+            requestAnimationFrame(() => {
+                target.classList.remove('active');
+                animateHeight(panel, 0);
+                panel.setAttribute('aria-hidden', 'true');
+            });
         }
 
         function openItem(target) {
-            const targetAnswer = target.querySelector('.faq-answer');
-            if (!targetAnswer) return;
+            const panel = target.querySelector('.faq-answer');
+            if (!panel) return;
+            // Start from current state, ensure a numeric height to transition from
+            const current = panel.style.maxHeight;
+            if (current === 'none' || current === '') {
+                panel.style.maxHeight = '0px';
+            }
             target.classList.add('active');
-            // First set to auto height value for measurement
-            targetAnswer.style.maxHeight = targetAnswer.scrollHeight + 'px';
+            requestAnimationFrame(() => {
+                const to = panel.scrollHeight;
+                animateHeight(panel, to);
+                panel.setAttribute('aria-hidden', 'false');
+            });
         }
 
-        question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
+        if (question) {
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
 
-            // Close other open items
-            faqItems.forEach(other => {
-                if (other !== item && other.classList.contains('active')) {
-                    closeItem(other);
+                // Close others first to reduce layout thrash
+                faqItems.forEach(other => {
+                    if (other !== item && other.classList.contains('active')) {
+                        closeItem(other);
+                    }
+                });
+
+                if (isActive) {
+                    closeItem(item);
+                } else {
+                    openItem(item);
                 }
             });
+        }
 
-            if (isActive) {
-                closeItem(item);
-            } else {
-                openItem(item);
-            }
-        });
-
-        // After transition ends from open state, remove maxHeight inline to allow content changes
         if (answer) {
             answer.addEventListener('transitionend', (e) => {
                 if (e.propertyName !== 'max-height') return;
                 if (item.classList.contains('active')) {
+                    // Let the panel auto-size after expanding to avoid future jumps on content changes
                     answer.style.maxHeight = 'none';
+                } else {
+                    answer.style.maxHeight = '0px';
                 }
             });
         }
