@@ -28,7 +28,7 @@ body {
 }
 @media only screen and (max-width: 991px) {
   .button-mobile-menu {
-    display: block;
+    display: none;
   }
 }
 .button-mobile-menu.open .icon span {
@@ -151,7 +151,7 @@ header .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 17px 60px 17px 30px;
+  padding: 16px 16px 16px 16px;
 }
 @media only screen and (max-width: 991px) {
   header .content {
@@ -165,11 +165,6 @@ header .content .left-content {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
-@media only screen and (max-width: 991px) {
-  header .content .left-content {
-    display: none;
-  }
 }
 header .content .logo {
   height: 46px;
@@ -200,21 +195,21 @@ header .content .menu {
   max-width: 840px;
   width: 100%;
 }
-@media only screen and (max-width: 991px) {
-  header .content .menu {
-    display: none;
-  }
-}
 header .content .menu nav .ul {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 header .content .menu nav .ul .nav-list {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+@media only screen and (max-width: 991px) {
+  header .content .menu nav .ul .nav-list {
+    display: none;
+  }
 }
 header .content .menu nav .ul .nav-btn .button-survey a {
   color: #fff;
@@ -224,9 +219,16 @@ header .content .menu nav .ul .nav-btn .button-survey a {
   justify-content: center;
   padding: 12px 16px;
   text-decoration: none;
+  font-size: 12px;
 }
 header .content .menu nav .ul .nav-btn .button-survey a:hover {
   text-decoration: underline;
+}
+@media only screen and (max-width: 991px) {
+  header .content .menu nav .ul .nav-btn .button-survey a {
+    padding: 10px 16px !important;
+    height: 32px;
+  }
 }
 header .content .menu nav .ul .li {
   width: 100%;
@@ -250,7 +252,8 @@ header .content .menu nav .ul .li a {
 }
 @media only screen and (max-width: 991px) {
   header .content .button-survey {
-    display: none;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 header .content .button-survey a {
