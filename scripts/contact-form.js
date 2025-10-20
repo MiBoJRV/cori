@@ -103,11 +103,11 @@ function initContactForm() {
             iti = window.intlTelInput(phoneInput, {
                 loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/js/utils.js"),
                 initialCountry: "auto",
-                geoIpLookup: (success, failure) => {
-                    fetch("https://ipapi.co/json")
-                        .then((res) => res.json())
-                        .then((data) => success(data.country_code))
-                        .catch(() => failure());
+                geoIpLookup: callback => {
+                    fetch("https://ipwho.is/")
+                        .then(res => res.json())
+                        .then(data => callback(data.country_code))
+                        .catch(() => callback("us"));
                 },
                 strictMode: true,
                 separateDialCode: true,
