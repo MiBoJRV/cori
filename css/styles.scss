@@ -1136,13 +1136,39 @@ main {
     max-width: 1440px;
     margin: 55px auto 0;
 
+    .image-slider {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+          width: 141px;
+          height: 141px;
+          object-fit: cover;
+          display: block;
+        }
+      }
+
+      .swiper-pagination {
+        display: none;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: none;
+      }
+    }
+
     img {
       @media only screen and (max-width: 480px) {
         height: 93px;
       }
     }
-
-
   }
 
   .consultations-badge {

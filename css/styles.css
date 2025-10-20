@@ -913,6 +913,29 @@ main {
   max-width: 1440px;
   margin: 55px auto 0;
 }
+.consultations-section .consultations-collage .image-slider {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.consultations-section .consultations-collage .image-slider .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.consultations-section .consultations-collage .image-slider .swiper-slide img {
+  width: 141px;
+  height: 141px;
+  object-fit: cover;
+  display: block;
+}
+.consultations-section .consultations-collage .image-slider .swiper-pagination {
+  display: none;
+}
+.consultations-section .consultations-collage .image-slider .swiper-button-next,
+.consultations-section .consultations-collage .image-slider .swiper-button-prev {
+  display: none;
+}
 @media only screen and (max-width: 480px) {
   .consultations-section .consultations-collage img {
     height: 93px;

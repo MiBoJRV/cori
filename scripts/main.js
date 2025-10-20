@@ -209,6 +209,45 @@ if (mobileMenuLinks.length > 0) {
         });
     }
 
+    // --------------- IMAGE SLIDER ---------------
+    const imageSliderElement = document.querySelector('.image-slider');
+    if (imageSliderElement) {
+        const imageSlider = new Swiper('.image-slider', {
+            loop: true,
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            speed: 800,
+            spaceBetween: 0,
+            slidesPerView: 10,
+            centeredSlides: false,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                },
+                480: {
+                    slidesPerView: 2,
+                    spaceBetween: 0
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 0
+                },
+                1024: {
+                    slidesPerView: 6,
+                    spaceBetween: 0
+                },
+                1200: {
+                    slidesPerView: 8,
+                    spaceBetween: 0
+                },
+                1400: {
+                    slidesPerView: 10,
+                    spaceBetween: 0
+                }
+            }
+        });
+    }
+
     // --------------- COOKIE BANNER ---------------
     const cookieBanner = document.getElementById('cookieBanner');
     const acceptAllCookiesBtn = document.getElementById('acceptAllCookies');
