@@ -707,6 +707,112 @@ main {
   object-fit: cover;
   display: block;
 }
+
+/* Video and Loading Styles */
+.testimonials-section .testimonials-gif {
+  position: relative;
+}
+
+.testimonial-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 15px;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #222222;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+.loading-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  background: transparent;
+  min-width: 209px;
+  height: 59px;
+  justify-content: center;
+}
+
+.loading-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.21;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.loading-percentage {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.21;
+  color: #FFFFFF;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+@media only screen and (max-width: 768px) {
+  .testimonial-video {
+    border-radius: 9px;
+  }
+  
+  .loading-overlay {
+    border-radius: 9px;
+  }
+  
+  .loading-content {
+    min-width: 150px;
+    height: 45px;
+  }
+  
+  .loading-text,
+  .loading-percentage {
+    font-size: 14px;
+  }
+}
 .testimonials-section .testimonials-slider {
   flex: 1;
   display: flex;

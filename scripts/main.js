@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Video loading functionality
+    initVideoLoading();
+
     // logo scrollers
     const scrollers = document.querySelectorAll(".scroller");
 
@@ -563,5 +566,106 @@ if (mobileMenuLinks.length > 0) {
             });
         }
     });
+
+    // Video loading functionality
+    function initVideoLoading() {
+        const video = document.querySelector('.testimonial-video');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const progressBar = document.getElementById('progressBar');
+        const loadingPercentage = document.getElementById('loadingPercentage');
+
+        if (!video || !loadingOverlay || !progressBar || !loadingPercentage) {
+            return;
+        }
+
+        let progress = 0;
+        let loadingInterval;
+
+        // Simulate realistic loading progress
+        function updateProgress() {
+            progress += Math.random() * 15 + 5; // Random increment between 5-20%
+            
+            if (progress > 100) {
+                progress = 100;
+            }
+
+            progressBar.style.width = progress + '%';
+            loadingPercentage.textContent = Math.round(progress) + '%';
+
+            // Complete loading when video is ready
+            if (video.readyState >= 3 && progress >= 100) {
+                clearInterval(loadingInterval);
+                setTimeout(() => {
+                    loadingOverlay.classList.add('hidden');
+                    setTimeout(() => {
+                        loadingOverlay.style.display = 'none';
+                    }, 300);
+                }, 500);
+            }
+        }
+
+        // Start loading animation
+        loadingInterval = setInterval(updateProgress, 200);
+
+        // Handle video events
+        video.addEventListener('loadstart', () => {
+            console.log('Video loading started');
+        });
+
+        video.addEventListener('progress', () => {
+            // Real progress based on video loading
+            const buffered = video.buffered;
+            if (buffered.length > 0) {
+                const loaded = buffered.end(buffered.length - 1);
+                const duration = video.duration;
+                if (duration > 0) {
+                    const realProgress = (loaded / duration) * 100;
+                    if (realProgress > progress) {
+                        progress = realProgress;
+                        progressBar.style.width = progress + '%';
+                        loadingPercentage.textContent = Math.round(progress) + '%';
+                    }
+                }
+            }
+        });
+
+        video.addEventListener('canplaythrough', () => {
+            // Video is ready to play
+            progress = 100;
+            progressBar.style.width = '100%';
+            loadingPercentage.textContent = '100%';
+            clearInterval(loadingInterval);
+            
+            setTimeout(() => {
+                loadingOverlay.classList.add('hidden');
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 300);
+            }, 500);
+        });
+
+        video.addEventListener('error', () => {
+            console.error('Video loading error');
+            clearInterval(loadingInterval);
+            loadingOverlay.style.display = 'none';
+        });
+
+        // Fallback: hide loading after 5 seconds regardless
+        setTimeout(() => {
+            if (loadingOverlay.style.display !== 'none') {
+                clearInterval(loadingInterval);
+                progress = 100;
+                progressBar.style.width = '100%';
+                loadingPercentage.textContent = '100%';
+                
+                setTimeout(() => {
+                    loadingOverlay.classList.add('hidden');
+                    setTimeout(() => {
+                        loadingOverlay.style.display = 'none';
+                    }, 300);
+                }, 500);
+            }
+        }, 5000);
+    }
 
 });
