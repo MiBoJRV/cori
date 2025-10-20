@@ -278,7 +278,7 @@ header {
             justify-content: center;
             //max-width: 208px;
             width: 100%;
-            
+
             @media only screen and (max-width: 991px) {
             display: none;
             }
@@ -3770,7 +3770,8 @@ h5 {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.55s ease, opacity 0.55s ease;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, margin 0.3s ease-out;
+
     padding: 0 28px;
 
     p {
