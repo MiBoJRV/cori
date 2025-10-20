@@ -690,11 +690,6 @@ main {
   object-fit: cover;
   display: block;
 }
-@media only screen and (max-width: 768px) {
-  .testimonials-section .testimonials-gif .gif-desktop {
-    display: none;
-  }
-}
 .testimonials-section .testimonials-slider {
   flex: 1;
   display: flex;
@@ -837,7 +832,7 @@ main {
 }
 @media only screen and (max-width: 768px) {
   .consultations-section {
-    padding: 56px 0;
+    padding: 0;
     background: #fff;
   }
 }
@@ -977,6 +972,11 @@ main {
   font-weight: 700;
   font-size: 16px;
   gap: 8px;
+}
+@media only screen and (max-width: 768px) {
+  .consultations-section .consultations-btn {
+    height: 32px;
+  }
 }
 .consultations-section .consultations-image {
   width: 100%;
@@ -1422,7 +1422,7 @@ main {
 }
 @media only screen and (max-width: 768px) {
   .support-section .support-btn {
-    height: 40px;
+    height: 32px;
     padding: 0 14px;
     border-radius: 90.552px;
     max-width: 120px;
@@ -2068,7 +2068,7 @@ main {
 }
 @media only screen and (max-width: 768px) {
   .contact-section .submit-btn {
-    height: 43px;
+    height: 32px;
     font-size: 14px;
     border-radius: 88px;
   }
