@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 /*colors*/
 * {
@@ -668,6 +669,22 @@ main {
     flex-direction: column;
     gap: 40px;
     align-items: center;
+  }
+}
+.testimonials-section .testimonials-content .video-container {
+  position: relative;
+  width: 100%;
+  /* 🟢 ЗМІНА: адаптивне співвідношення сторін */
+  overflow: hidden;
+  max-width: 588px;
+  border-radius: 15px; /* опціонально */
+  height: 330px;
+  padding-bottom: 0;
+}
+@media only screen and (max-width: 620px) {
+  .testimonials-section .testimonials-content .video-container {
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
   }
 }
 .testimonials-section .testimonials-gif {

@@ -872,6 +872,25 @@ main {
       gap: 40px;
       align-items: center;
     }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      /* 🟢 ЗМІНА: адаптивне співвідношення сторін */
+
+      overflow: hidden;
+      max-width: 588px;
+      border-radius: 15px; /* опціонально */
+
+      height: 330px;
+      padding-bottom: 0;
+
+      @media only screen and (max-width: 620px) {
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+      }
+
+    }
   }
 
   .testimonials-gif {
