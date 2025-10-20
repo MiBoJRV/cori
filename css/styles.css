@@ -1843,7 +1843,7 @@ main {
 .contact-section .contact-section-content {
   display: flex;
   gap: 24px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 @media only screen and (max-width: 991px) {
   .contact-section .contact-section-content {
@@ -1856,7 +1856,6 @@ main {
   padding: 38.5px 16px;
   flex: 0 0 384px;
   min-height: 444px;
-  height: -webkit-fill-available;
 }
 @media only screen and (max-width: 991px) {
   .contact-section .contact-form-wrapper {
