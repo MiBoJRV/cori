@@ -442,25 +442,63 @@ if (mobileMenuLinks.length > 0) {
     startAutoPlay();
 
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        
+        const answer = item.querySelector('.faq-answer');
+
+        // Ensure starting state
+        if (!item.classList.contains('active')) {
+            if (answer) {
+                answer.style.maxHeight = '0px';
+            }
+        }
+
+        function closeItem(target) {
+            const targetAnswer = target.querySelector('.faq-answer');
+            if (!targetAnswer) return;
+            // Set explicit height to trigger transition from current height to 0
+            targetAnswer.style.maxHeight = targetAnswer.scrollHeight + 'px';
+            // Force reflow to apply current height before collapsing
+            void targetAnswer.offsetHeight;
+            target.classList.remove('active');
+            targetAnswer.style.maxHeight = '0px';
+        }
+
+        function openItem(target) {
+            const targetAnswer = target.querySelector('.faq-answer');
+            if (!targetAnswer) return;
+            target.classList.add('active');
+            // First set to auto height value for measurement
+            targetAnswer.style.maxHeight = targetAnswer.scrollHeight + 'px';
+        }
+
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
-            
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
+
+            // Close other open items
+            faqItems.forEach(other => {
+                if (other !== item && other.classList.contains('active')) {
+                    closeItem(other);
                 }
             });
-            
-            if (!isActive) {
-                item.classList.add('active');
+
+            if (isActive) {
+                closeItem(item);
             } else {
-                item.classList.remove('active');
+                openItem(item);
             }
         });
+
+        // After transition ends from open state, remove maxHeight inline to allow content changes
+        if (answer) {
+            answer.addEventListener('transitionend', (e) => {
+                if (e.propertyName !== 'max-height') return;
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = 'none';
+                }
+            });
+        }
     });
 
 });
