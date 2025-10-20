@@ -742,17 +742,31 @@ main {
 }
 
 .loading-content {
+  position: absolute;
+  /* Position according to Figma within 588x331 frame */
+  /* left 189px / 588 = 32.14% */
+  left: 32.14%;
+  /* top 136px / 331 = 41.09% */
+  top: 41.09%;
+  /* width 209px / 588 = 35.54% */
+  width: 35.54%;
+  /* height 59px -> use exact px to respect line height */
+  height: 59px;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 8px;
   padding: 6px;
   border: 1px solid #FFFFFF;
   border-radius: 5px;
   background: transparent;
-  min-width: 209px;
-  height: 59px;
-  justify-content: center;
+  box-sizing: border-box;
+}
+
+.loading-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .loading-text {
@@ -761,8 +775,6 @@ main {
   font-size: 16px;
   line-height: 1.21;
   color: #FFFFFF;
-  text-align: center;
-  margin-bottom: 8px;
 }
 
 .loading-percentage {
@@ -771,10 +783,6 @@ main {
   font-size: 16px;
   line-height: 1.21;
   color: #FFFFFF;
-  text-align: center;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 .progress-bar-container {
@@ -803,8 +811,12 @@ main {
     border-radius: 9px;
   }
   
+  /* On mobile, center the box and scale */
   .loading-content {
-    min-width: 150px;
+    position: static;
+    margin: 0 auto;
+    width: 70%;
+    max-width: 260px;
     height: 45px;
   }
   

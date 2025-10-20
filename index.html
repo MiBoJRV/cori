@@ -295,10 +295,12 @@
                             <source src="images/client.mp4" type="video/mp4">
                         </video>
                         <div class="loading-overlay" id="loadingOverlay">
-                            <div class="loading-content">
-                                <div class="loading-text">Loading...</div>
-                                <div class="loading-percentage" id="loadingPercentage">0%</div>
-                                <div class="progress-bar-container">
+                            <div class="loading-content" role="status" aria-live="polite">
+                                <div class="loading-header">
+                                    <div class="loading-text">Loading...</div>
+                                    <div class="loading-percentage" id="loadingPercentage">0%</div>
+                                </div>
+                                <div class="progress-bar-container" aria-hidden="false">
                                     <div class="progress-bar" id="progressBar"></div>
                                 </div>
                             </div>
