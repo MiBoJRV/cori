@@ -827,7 +827,7 @@ main {
 }
 
 .consultations-section {
-  padding: 60px 0;
+  padding: 60px 0 0;
   background: #ebebeb;
 }
 @media only screen and (max-width: 768px) {
@@ -911,7 +911,6 @@ main {
 .consultations-section .consultations-collage {
   overflow: hidden;
   max-width: 1472px;
-  padding: 0 16px;
   margin: 55px auto 0;
 }
 .consultations-section .consultations-collage .image-slider {
@@ -926,11 +925,22 @@ main {
   flex-shrink: 0;
   width: 141px !important;
 }
+@media only screen and (max-width: 480px) {
+  .consultations-section .consultations-collage .image-slider .swiper-slide {
+    width: 93.36px !important;
+  }
+}
 .consultations-section .consultations-collage .image-slider .swiper-slide img {
   width: 141px;
   height: 141px;
   object-fit: cover;
   display: block;
+}
+@media only screen and (max-width: 480px) {
+  .consultations-section .consultations-collage .image-slider .swiper-slide img {
+    width: 93.36px;
+    height: 93.36px;
+  }
 }
 .consultations-section .consultations-collage .image-slider .swiper-pagination {
   display: none;
