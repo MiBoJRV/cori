@@ -233,15 +233,15 @@ if (mobileMenuLinks.length > 0) {
                     spaceBetween: 0
                 },
                 1024: {
-                    slidesPerView: 6,
+                    slidesPerView: 7,
                     spaceBetween: 0
                 },
                 1200: {
-                    slidesPerView: 8,
+                    slidesPerView: 9,
                     spaceBetween: 0
                 },
                 1400: {
-                    slidesPerView: 10,
+                    slidesPerView: 10.2,
                     spaceBetween: 0
                 }
             }

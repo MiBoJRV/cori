@@ -1133,7 +1133,8 @@ main {
 
   .consultations-collage {
     overflow: hidden;
-    max-width: 1440px;
+    max-width: 1472px;
+    padding: 0 16px;
     margin: 55px auto 0;
 
     .image-slider {
@@ -1145,6 +1146,8 @@ main {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 141px!important;
+        height: 141px;
         
         img {
           width: 141px;
