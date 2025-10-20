@@ -692,6 +692,7 @@ main {
   height: 331px;
   border-radius: 15px;
   overflow: hidden;
+  position: relative;
 }
 @media only screen and (max-width: 768px) {
   .testimonials-section .testimonials-gif {
@@ -707,21 +708,19 @@ main {
   object-fit: cover;
   display: block;
 }
-
-/* Video and Loading Styles */
-.testimonials-section .testimonials-gif {
-  position: relative;
-}
-
-.testimonial-video {
+.testimonials-section .testimonials-gif .testimonial-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   border-radius: 15px;
 }
-
-.loading-overlay {
+@media only screen and (max-width: 768px) {
+  .testimonials-section .testimonials-gif .testimonial-video {
+    border-radius: 9px;
+  }
+}
+.testimonials-section .testimonials-gif .loading-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -735,95 +734,81 @@ main {
   z-index: 10;
   transition: opacity 0.3s ease;
 }
-
-.loading-overlay.hidden {
+@media only screen and (max-width: 768px) {
+  .testimonials-section .testimonials-gif .loading-overlay {
+    border-radius: 9px;
+  }
+}
+.testimonials-section .testimonials-gif .loading-overlay.hidden {
   opacity: 0;
   pointer-events: none;
 }
-
-.loading-content {
+.testimonials-section .testimonials-gif .loading-overlay .loading-content {
   position: absolute;
-  /* Position according to Figma within 588x331 frame */
-  /* left 189px / 588 = 32.14% */
   left: 32.14%;
-  /* top 136px / 331 = 41.09% */
   top: 41.09%;
-  /* width 209px / 588 = 35.54% */
   width: 35.54%;
-  /* height 59px -> use exact px to respect line height */
-  height: 59px;
-
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 6px;
-  border: 1px solid #FFFFFF;
   border-radius: 5px;
   background: transparent;
   box-sizing: border-box;
 }
-
-.loading-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.loading-text {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.21;
-  color: #FFFFFF;
-}
-
-.loading-percentage {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.21;
-  color: #FFFFFF;
-}
-
-.progress-bar-container {
-  width: 100%;
-  height: 4px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
-  overflow: hidden;
-  margin-top: 8px;
-}
-
-.progress-bar {
-  height: 100%;
-  background-color: #FFFFFF;
-  border-radius: 2px;
-  width: 0%;
-  transition: width 0.3s ease;
-}
-
 @media only screen and (max-width: 768px) {
-  .testimonial-video {
-    border-radius: 9px;
-  }
-  
-  .loading-overlay {
-    border-radius: 9px;
-  }
-  
-  /* On mobile, center the box and scale */
-  .loading-content {
+  .testimonials-section .testimonials-gif .loading-overlay .loading-content {
     position: static;
     margin: 0 auto;
     width: 70%;
     max-width: 260px;
     height: 45px;
   }
-  
-  .loading-text,
-  .loading-percentage {
+}
+.testimonials-section .testimonials-gif .loading-overlay .loading-content .loading-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.testimonials-section .testimonials-gif .loading-overlay .loading-content .loading-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.21;
+  color: #fff;
+}
+@media only screen and (max-width: 768px) {
+  .testimonials-section .testimonials-gif .loading-overlay .loading-content .loading-text {
     font-size: 14px;
   }
+}
+.testimonials-section .testimonials-gif .loading-overlay .loading-content .loading-percentage {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.21;
+  color: #fff;
+}
+@media only screen and (max-width: 768px) {
+  .testimonials-section .testimonials-gif .loading-overlay .loading-content .loading-percentage {
+    font-size: 14px;
+  }
+}
+.testimonials-section .testimonials-gif .loading-overlay .loading-content .progress-bar-container {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 2px;
+  overflow: hidden;
+  height: 32px;
+  padding: 6px;
+  border: 1px solid #fff;
+}
+.testimonials-section .testimonials-gif .loading-overlay .loading-content .progress-bar-container .progress-bar {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.3s ease;
 }
 .testimonials-section .testimonials-slider {
   flex: 1;
