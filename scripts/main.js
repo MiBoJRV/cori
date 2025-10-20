@@ -567,14 +567,14 @@ if (mobileMenuLinks.length > 0) {
         }
     });
 
-    // Video loading functionality
+    // Image loading functionality
     function initVideoLoading() {
-        const video = document.querySelector('.testimonial-video');
+        const image = document.querySelector('.gif-desktop');
         const loadingOverlay = document.getElementById('loadingOverlay');
         const progressBar = document.getElementById('progressBar');
         const loadingPercentage = document.getElementById('loadingPercentage');
 
-        if (!video || !loadingOverlay || !progressBar || !loadingPercentage) {
+        if (!image || !loadingOverlay || !progressBar || !loadingPercentage) {
             return;
         }
 
@@ -592,8 +592,8 @@ if (mobileMenuLinks.length > 0) {
             progressBar.style.width = progress + '%';
             loadingPercentage.textContent = Math.round(progress) + '%';
 
-            // Complete loading when video is ready
-            if (video.readyState >= 3 && progress >= 100) {
+            // Complete loading when image is ready
+            if (image.complete && progress >= 100) {
                 clearInterval(loadingInterval);
                 setTimeout(() => {
                     loadingOverlay.classList.add('hidden');
@@ -607,30 +607,9 @@ if (mobileMenuLinks.length > 0) {
         // Start loading animation
         loadingInterval = setInterval(updateProgress, 200);
 
-        // Handle video events
-        video.addEventListener('loadstart', () => {
-            console.log('Video loading started');
-        });
-
-        video.addEventListener('progress', () => {
-            // Real progress based on video loading
-            const buffered = video.buffered;
-            if (buffered.length > 0) {
-                const loaded = buffered.end(buffered.length - 1);
-                const duration = video.duration;
-                if (duration > 0) {
-                    const realProgress = (loaded / duration) * 100;
-                    if (realProgress > progress) {
-                        progress = realProgress;
-                        progressBar.style.width = progress + '%';
-                        loadingPercentage.textContent = Math.round(progress) + '%';
-                    }
-                }
-            }
-        });
-
-        video.addEventListener('canplaythrough', () => {
-            // Video is ready to play
+        // Handle image events
+        image.addEventListener('load', () => {
+            console.log('Image loading completed');
             progress = 100;
             progressBar.style.width = '100%';
             loadingPercentage.textContent = '100%';
@@ -644,13 +623,13 @@ if (mobileMenuLinks.length > 0) {
             }, 500);
         });
 
-        video.addEventListener('error', () => {
-            console.error('Video loading error');
+        image.addEventListener('error', () => {
+            console.error('Image loading error');
             clearInterval(loadingInterval);
             loadingOverlay.style.display = 'none';
         });
 
-        // Fallback: hide loading after 5 seconds regardless
+        // Fallback: hide loading after 3 seconds regardless
         setTimeout(() => {
             if (loadingOverlay.style.display !== 'none') {
                 clearInterval(loadingInterval);
@@ -665,7 +644,7 @@ if (mobileMenuLinks.length > 0) {
                     }, 300);
                 }, 500);
             }
-        }, 5000);
+        }, 3000);
     }
 
 });
