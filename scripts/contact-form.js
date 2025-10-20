@@ -332,7 +332,7 @@ function initContactForm() {
                 LastName: '', // Will be extracted from firstName
                 Email: fields.email.value.trim(),
                 PhoneNumber: fullNumber.trim().replace(/\s+/g, ''),
-                Page: 'Cori Contact Form',
+                Page: 'ICO-CA',
                 Description: 'Contact form submission'
             };
 

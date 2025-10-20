@@ -132,13 +132,10 @@ body {
   font-size: 24px;
   line-height: 67%;
   color: #fff;
-  background: #FF0000;
+  background: #cd2a2a;
 }
 .mobile-content .button-survey a:hover {
-  background: rgba(255, 0, 0, 0.8392156863);
-}
-.mobile-content .button-survey a:active {
-  background: rgba(255, 0, 0, 0.8392156863);
+  text-decoration: underline;
 }
 
 header {
@@ -229,7 +226,7 @@ header .content .menu nav .ul .nav-btn .button-survey a {
   text-decoration: none;
 }
 header .content .menu nav .ul .nav-btn .button-survey a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 header .content .menu nav .ul .li {
   width: 100%;
@@ -267,13 +264,10 @@ header .content .button-survey a {
   font-size: 16px;
   line-height: 100%;
   color: #fff;
-  background: #FF0000;
+  background: #cd2a2a;
 }
 header .content .button-survey a:hover {
-  background: rgba(255, 0, 0, 0.8392156863);
-}
-header .content .button-survey a:active {
-  background: rgba(255, 0, 0, 0.8392156863);
+  text-decoration: underline;
 }
 
 .banner {
@@ -449,8 +443,7 @@ header .content .button-survey a:active {
   padding: 6.5px 8px;
 }
 .banner-content .button-survey a:hover {
-  background: rgba(255, 0, 0, 0.8392156863);
-  text-decoration: none;
+  text-decoration: underline;
 }
 .banner-content .button-survey .logo-slider-wrap {
   position: relative;
@@ -630,7 +623,6 @@ header .content .button-survey a:active {
 }
 
 main {
-  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -932,8 +924,9 @@ main {
   }
 }
 .consultations-section .consultations-collage {
-  margin-top: 55px;
   overflow: hidden;
+  max-width: 1440px;
+  margin: 55px auto 0;
 }
 @media only screen and (max-width: 480px) {
   .consultations-section .consultations-collage img {
@@ -1803,7 +1796,6 @@ main {
 
 .contact-section {
   padding: 80px 0;
-  background: #ebebeb;
 }
 @media only screen and (max-width: 768px) {
   .contact-section {
@@ -2720,7 +2712,6 @@ main {
   }
 }
 .about-us-section .about-us-container {
-  max-width: 1440px;
   margin: 0 auto;
 }
 .about-us-section .about-us-row {
@@ -3116,7 +3107,7 @@ main {
   align-items: center;
   justify-content: center;
   box-shadow: 2px 2px 0 0 rgba(15, 21, 27, 0.2);
-  background: #FF0000;
+  background: #cd2a2a;
   color: #fff;
   font-size: 20px;
   font-style: normal;

@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 LastName: lastNameOnly,
                 Email: formData.email,
                 PhoneNumber: formData.phone,
-                Page: 'Corina Survey',
+                Page: 'ICO-CA',
                 Description: `Survey Results:\nFraud Type: ${formData.fraud_type}\nResidence Status: ${formData.residence_status}\nFund Source: ${formData.fund_source}\nMonetary Loss: ${formData.monetary_loss}`,
             }).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&')
         })

@@ -184,15 +184,16 @@ body {
       font-size: 24px;
       line-height: 67%;
       color: #fff;
-      background: $red;
+      background: $brand-color;
 
       &:hover {
-        background: $red-hover;
+        //background: $red-hover;
+        text-decoration: underline;
       }
 
-      &:active {
-        background: $red-hover;
-      }
+      //&:active {
+      //  background: $red-hover;
+      //}
     }
   }
 }
@@ -294,7 +295,7 @@ header {
                 text-decoration: none;
 
                 &:hover {
-                  text-decoration: none;
+                  text-decoration: underline;
                 }
               }
             }
@@ -353,15 +354,16 @@ header {
         font-size: 16px;
         line-height: 100%;
         color: $white;
-        background: $red;
+        background: $brand-color;
 
         &:hover {
-          background: $red-hover;
+          //background: $red-hover;
+          text-decoration: underline;
         }
 
-        &:active {
-          background: $red-hover;
-        }
+        //&:active {
+        //  background: $red-hover;
+        //}
       }
     }
   }
@@ -559,8 +561,8 @@ header {
         padding: 6.5px 8px;
 
         &:hover {
-          background: $red-hover;
-          text-decoration: none;
+          //background: $red-hover;
+          text-decoration: underline;
         }
 
       }
@@ -812,7 +814,7 @@ header {
 }
 
 main {
-  max-width: 1440px;
+  //max-width: 1440px;
   margin: 0 auto;
   //padding: 0 30px;
 
@@ -1123,8 +1125,9 @@ main {
   }
 
   .consultations-collage {
-    margin-top: 55px;
     overflow: hidden;
+    max-width: 1440px;
+    margin: 55px auto 0;
 
     img {
       @media only screen and (max-width: 480px) {
@@ -2101,7 +2104,6 @@ main {
 
 .contact-section {
   padding: 80px 0;
-  background: $light-grey;
 
   @media only screen and (max-width: 768px) {
     padding: 56px 0;
@@ -3117,7 +3119,7 @@ main {
   }
 
   .about-us-container {
-    max-width: 1440px;
+    //max-width: 1440px;
     margin: 0 auto;
     //padding: 0 30px;
   }
@@ -3579,7 +3581,7 @@ main {
       align-items: center;
       justify-content: center;
       box-shadow: 2px 2px 0 0 rgba(15, 21, 27, 0.2);
-      background: $red;
+      background: $brand-color;
       color: #fff;
       font-size: 20px;
       font-style: normal;
