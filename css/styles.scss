@@ -1146,8 +1146,8 @@ main {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 141px!important;
-        height: 141px;
+        flex-shrink: 0;
+        width: 141px !important;
         
         img {
           width: 141px;

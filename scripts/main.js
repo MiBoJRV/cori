@@ -217,31 +217,34 @@ if (mobileMenuLinks.length > 0) {
             autoplay: { delay: 4000, disableOnInteraction: false },
             speed: 800,
             spaceBetween: 0,
-            slidesPerView: 10,
+            slidesPerView: 'auto',
             centeredSlides: false,
+            allowTouchMove: true,
+            watchSlidesProgress: true,
+            watchSlidesVisibility: true,
             breakpoints: {
                 0: {
-                    slidesPerView: 1,
+                    slidesPerView: 'auto',
                     spaceBetween: 0
                 },
                 480: {
-                    slidesPerView: 2,
+                    slidesPerView: 'auto',
                     spaceBetween: 0
                 },
                 768: {
-                    slidesPerView: 4,
+                    slidesPerView: 'auto',
                     spaceBetween: 0
                 },
                 1024: {
-                    slidesPerView: 7,
+                    slidesPerView: 'auto',
                     spaceBetween: 0
                 },
                 1200: {
-                    slidesPerView: 9,
+                    slidesPerView: 'auto',
                     spaceBetween: 0
                 },
                 1400: {
-                    slidesPerView: 10.2,
+                    slidesPerView: 'auto',
                     spaceBetween: 0
                 }
             }
