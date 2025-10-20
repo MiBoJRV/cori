@@ -2995,9 +2995,8 @@ h5 {
 }
 
 .cookie-banner-btn-primary:hover {
+  color: #282828;
   background: #fff;
-  color: #004570;
-  border-color: #004570;
 }
 
 .cookie-banner-btn-secondary {
@@ -3013,9 +3012,8 @@ h5 {
 }
 
 .cookie-banner-btn-secondary:hover {
-  background: #004570;
+  background: transparent;
   color: #fff;
-  border-color: #004570;
 }
 
 @media only screen and (max-width: 991px) {

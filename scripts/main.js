@@ -212,6 +212,7 @@ if (mobileMenuLinks.length > 0) {
     // --------------- COOKIE BANNER ---------------
     const cookieBanner = document.getElementById('cookieBanner');
     const acceptAllCookiesBtn = document.getElementById('acceptAllCookies');
+    const closeCookiesBtn = document.getElementById('closeCookies');
     
     function checkCookieConsent() {
         const cookieConsent = localStorage.getItem('cookieConsent');
@@ -230,8 +231,18 @@ if (mobileMenuLinks.length > 0) {
         }
     }
     
+    function closeCookies() {
+        if (cookieBanner) {
+            cookieBanner.classList.remove('show');
+        }
+    }
+    
     if (acceptAllCookiesBtn) {
         acceptAllCookiesBtn.addEventListener('click', acceptAllCookies);
+    }
+    
+    if (closeCookiesBtn) {
+        closeCookiesBtn.addEventListener('click', closeCookies);
     }
     
     checkCookieConsent();
