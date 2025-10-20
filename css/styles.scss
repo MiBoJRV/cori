@@ -2569,8 +2569,6 @@ main {
 }
 
 
-
-
 .reviews-section {
   margin-bottom: 112px;
   margin-top: 60px;
@@ -3367,14 +3365,11 @@ main {
   bottom: 0px;
   left: 0;
   right: 0;
-  background: #FFFFFF;
-  border-top: 1px solid #E5E5E5;
+  background: $background-gray;
   z-index: 1000;
   transform: translateY(100%);
   transition: transform 0.3s ease-in-out;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 37px;
-  max-width: 1342px;
+  //max-width: 1342px;
   margin: 0 auto;
 }
 
@@ -3385,30 +3380,41 @@ main {
 .cookie-banner-content {
   display: flex;
   align-items: center;
-  gap: 36px;
-  padding: 20px 30px;
-  //max-width: 1200px;
+  justify-content: space-between;
+  gap: 55px;
+  padding:46px 16px;
+  max-width: 1232px;
   margin: 0 auto;
+  background: $background-gray;
+
 }
 
 .cookie-banner-text {
   flex: 1;
-  max-width: 728px;
+  max-width: 776px;
+}
+
+h5 {
+  font-family: "Inter", sans-serif;
+  margin: 0 0 30px 0;
+
+  font-weight: 700;
+  font-size: 20px;
+  color: $white;
 }
 
 .cookie-banner-text p {
   font-family: "Inter", sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.3em;
-  color: #000000;
   margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+  color: $gray;
 }
 
 .cookie-banner-buttons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   flex-shrink: 0;
 }
 
@@ -3426,14 +3432,21 @@ main {
   border: 1px solid;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 220px;
+  min-width: 168px;
   justify-content: center;
 }
 
 .cookie-banner-btn-primary {
-  background: #004570;
-  color: #FFFFFF;
-  border-color: #FFFFFF;
+  border: 1px solid $white;
+  border-radius: 40px;
+  padding: 8px;
+  width: 168px;
+  height: 51px;
+  font-weight: 400;
+  font-size: 16px;
+  color: $white;
+  font-family: "Inter", sans-serif;
+  background: transparent;
 }
 
 .cookie-banner-btn-primary:hover {
@@ -3447,9 +3460,15 @@ main {
 }
 
 .cookie-banner-btn-secondary {
-  background: #FFFFFF;
-  color: #000000;
-  border-color: #000000;
+  border-radius: 48px;
+  padding: 8px;
+  width: 168px;
+  height: 51px;
+  font-weight: 400;
+  font-size: 16px;
+  color: $background-gray;
+  font-family: "Inter", sans-serif;
+  background: $white;
 }
 
 .cookie-banner-btn-secondary:hover {
@@ -3776,51 +3795,51 @@ main {
 .footer {
   background-color: $main-gray;
   color: $white;
-  
+
   .footer-main {
     padding: 22px 120px;
     max-width: 1440px;
     margin: 0 auto;
-    
+
     .footer-content {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 40px;
-      
+
       .footer-info {
         display: flex;
         flex-direction: column;
         gap: 16px;
         max-width: 520px;
-        
+
         .footer-logo {
           img {
             width: 159px;
             height: 55px;
           }
         }
-        
+
         .footer-contact {
-          p,a {
+          p, a {
             font-family: "Inter", sans-serif;
             font-size: 14px;
             line-height: 1.27;
             color: $white;
             margin-bottom: 8px;
-            
+
             &:last-child {
               margin-bottom: 0;
             }
           }
         }
       }
-      
+
       .footer-links {
         display: flex;
         gap: 40px;
         min-width: 300px;
-        
+
         .quick-links {
           h3 {
             font-family: "Inter", sans-serif;
@@ -3830,12 +3849,12 @@ main {
             color: $white;
             margin-bottom: 16px;
           }
-          
+
           .links-column {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            
+
             a {
               font-family: "Roboto", sans-serif;
               font-size: 16px;
@@ -3843,14 +3862,14 @@ main {
               color: $white;
               text-decoration: none;
               transition: opacity 0.3s ease;
-              
+
               &:hover {
                 opacity: 0.8;
               }
             }
           }
         }
-        
+
         .policies {
 
           h3 {
@@ -3860,7 +3879,7 @@ main {
             line-height: 1.21;
             color: #fff;
             margin-bottom: 16px;
-            
+
             @media only screen and (max-width: 768px) {
               display: none;
             }
@@ -3871,7 +3890,7 @@ main {
             flex-direction: column;
             gap: 16px;
           }
-          
+
           a {
             font-family: "Inter", sans-serif;
             font-size: 16px;
@@ -3879,7 +3898,7 @@ main {
             color: $white;
             text-decoration: none;
             transition: opacity 0.3s ease;
-            
+
             &:hover {
               opacity: 0.8;
             }
@@ -3888,11 +3907,11 @@ main {
       }
     }
   }
-  
+
   .footer-bottom {
     background-color: $background-gray;
     padding: 14px 0;
-    
+
     p {
       font-family: "Inter", sans-serif;
       font-size: 12px;
@@ -3904,27 +3923,27 @@ main {
       margin: 0 auto;
     }
   }
-  
+
   @media (max-width: 768px) {
     .footer-main {
       padding: 32px 16px;
-      
+
       .footer-content {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        
+
         .footer-info {
           align-items: center;
           max-width: 343px;
-          
+
           .footer-contact {
             p {
               text-align: center;
             }
           }
         }
-        
+
         .footer-links {
           flex-direction: column;
           align-items: center;
@@ -3933,18 +3952,18 @@ main {
           @media only screen and (max-width: 768px) {
             gap: 8px;
           }
-          
+
           .quick-links {
             h3 {
               text-align: center;
             }
-            
+
             .links-column {
               align-items: center;
               gap: 8px;
             }
           }
-          
+
           .policies {
             align-items: center;
             gap: 8px;
@@ -3952,7 +3971,7 @@ main {
         }
       }
     }
-    
+
     .footer-bottom {
       p {
         font-size: 10px;
