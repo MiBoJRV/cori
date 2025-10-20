@@ -331,6 +331,11 @@
 .thank-you-content .btn-home:hover {
   text-decoration: underline;
 }
+@media only screen and (max-width: 768px) {
+  .thank-you-content .btn-home {
+    height: 32px;
+  }
+}
 
 .quiz-navigation {
   display: flex;
@@ -355,6 +360,11 @@
   border: none;
   min-width: 152px;
   height: 48px;
+}
+@media only screen and (max-width: 768px) {
+  .quiz-navigation .btn {
+    height: 32px;
+  }
 }
 .quiz-navigation .btn.btn-next {
   background: #CD2A2A;
