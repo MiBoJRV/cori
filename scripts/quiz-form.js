@@ -286,33 +286,29 @@ document.addEventListener('DOMContentLoaded', function () {
             }).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&')
         })
             .then(r => {
-                if (!r.ok) throw new Error('Network response was not ok');
-                return r.json();
+                if (r.ok) {
+                    return r.json();
+                }
+                // Show error message for non-OK responses
+                showSurveyError('Server error occurred. Please try again later.');
+                // Restore button state
+                submitBtn.disabled = false;
+                if (nextStepLabel) nextStepLabel.textContent = originalLabel;
+                throw new Error('Network response was not ok');
             })
             .then(json => {
-                if (json.ret_code === '404') {
+                if (json.ret_code === '200') {
+                    localStorage.setItem('responseJson', JSON.stringify(json));
+                    
+                    // Redirect to th.html in the same window
+                    window.location.href = 'th.html';
+                } else {
+                    // Show error message for non-200 ret_code
                     showSurveyError(json.ret_message || 'An error occurred. Please try again.');
+                    // Restore button state
                     submitBtn.disabled = false;
                     if (nextStepLabel) nextStepLabel.textContent = originalLabel;
-                    return;
                 }
-
-                let thankYouWin = window.open('thank-you.html', '_blank');
-                let offerWin = null;
-
-                localStorage.setItem('responseJson', JSON.stringify(json));
-                
-                if (json.url) {
-                    offerWin = window.open(json.url, '_blank');
-                    localStorage.removeItem('responseJson');
-                }
-                
-                if (thankYouWin) {
-                    thankYouWin.focus();
-                }
-
-                currentStep = 6;
-                updateStepDisplay();
             })
             .catch(err => {
                 console.error(err);

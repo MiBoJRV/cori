@@ -381,32 +381,8 @@ function initContactForm() {
                     if (responseJson.ret_code === '200') {
                         localStorage.setItem('responseJson', JSON.stringify(responseJson));
                         
-                        // Open th.html page in new window
-                        try {
-                            const newWindow = window.open('th.html', '_blank', 'noopener,noreferrer');
-                            if (newWindow) {
-                                newWindow.focus();
-                            } else {
-                                // Popup blocked - show error message
-                                console.warn('Unable to open new window, popup may be blocked');
-                                showFormError('Unable to open new window. Please allow popups for this site and try again.');
-                                // Restore button state
-                                submitButton.disabled = false;
-                                submitButton.innerHTML = originalContent;
-                            }
-                        } catch (error) {
-                            console.warn('Popup blocked, unable to open new window');
-                            showFormError('Unable to open new window. Please allow popups for this site and try again.');
-                            // Restore button state
-                            submitButton.disabled = false;
-                            submitButton.innerHTML = originalContent;
-                        }
-
-                        // Show success message
-                        form.innerHTML = '<div class="success-message" style="text-align: center; padding: 20px; color: white;">' +
-                            '<h3 style="font-size: 24px; color: #fff; margin-bottom: 16px;">Thank you!</h3>' +
-                            '<p style="font-size: 16px;">Your message has been successfully sent. We will contact you soon.</p>' +
-                            '</div>';
+                        // Redirect to th.html in the same window
+                        window.location.href = 'th.html';
                     } else {
                         // Show error message for non-200 ret_code
                         showFormError(responseJson.ret_message || 'An error occurred. Please try again.');
