@@ -569,7 +569,7 @@ if (mobileMenuLinks.length > 0) {
 
     // Image loading functionality
     function initVideoLoading() {
-        const image = document.querySelector('.gif-desktop');
+        const image = document.querySelector('.gif');
         const loadingOverlay = document.getElementById('loadingOverlay');
         const progressBar = document.getElementById('progressBar');
         const loadingPercentage = document.getElementById('loadingPercentage');
