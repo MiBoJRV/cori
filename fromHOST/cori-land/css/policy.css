@@ -1,0 +1,207 @@
+/* Policy Page Styles */
+.policy-page {
+  background-color: #FFFFFF;
+  min-height: 100vh;
+}
+
+.policy-container {
+  max-width: 824px;
+  margin: 0 auto;
+  padding: 55px 16px;
+}
+
+.policy-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.policy-header h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 33px;
+  line-height: 1.21;
+  color: #202020;
+  margin: 0 0 16px 0;
+}
+.policy-header .last-updated {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.0225em;
+  color: #161616;
+  margin: 0;
+}
+
+.policy-content {
+  color: #161616;
+}
+.policy-content h2 {
+  line-height: 150%;
+  letter-spacing: -0.02em;
+  color: #161616;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.policy-content p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.0225em;
+  color: #161616;
+  text-align: left;
+  margin: 16px 0 0 0;
+}
+.policy-content p:last-child {
+  margin-bottom: 0;
+}
+.policy-content ul {
+  padding-left: 20px;
+}
+.policy-content ul li {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.0225em;
+  color: #161616;
+  list-style: disc;
+}
+.policy-content ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer Styles for Policy Page */
+.policy-page footer {
+  background-color: #363636;
+  margin-top: 60px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 22px 0;
+  gap: 40px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 520px;
+}
+.footer-info .footer-logo img {
+  width: 159px;
+  height: 55px;
+}
+.footer-info .footer-contact p {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.27;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.quick-links h4 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.21;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+}
+.quick-links .links-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.quick-links .links-column a {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.21;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.quick-links .links-column a:hover {
+  color: #CD2A2A;
+}
+
+.user-agreement a {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.21;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.user-agreement a:hover {
+  color: #CD2A2A;
+}
+
+.footer-bottom {
+  background-color: #282828;
+  padding: 14px 0;
+  text-align: center;
+}
+.footer-bottom p {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.21;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .policy-container {
+    padding: 20px 15px;
+  }
+  .policy-header h1 {
+    font-size: 28px;
+  }
+  .footer-main {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .links-column {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 480px) {
+  .policy-header h1 {
+    font-size: 24px;
+  }
+}
+
+/*# sourceMappingURL=policy.css.map */

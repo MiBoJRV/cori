@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MKM7H42C');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>CORI - Survey</title>
+    <link href="images/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="css/styles.css" rel="stylesheet">
+<!--    <link href="css/main.min.css" rel="stylesheet">-->
+    <link href="css/quiz.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/css/intlTelInput.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- ✅ Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKM7H42C"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="body-content">
+        <div class="quiz-container">
+            <div class="quiz-logo">
+                <img src="images/logo-quiz.svg" alt="CORI Logo">
+            </div>
+            <div class="quiz-form-wrapper">
+                <form class="quiz-form" id="surveyForm" novalidate>
+                        <div class="quiz-content">
+                            <!-- Step 1: What type of fraud have you encountered? -->
+                            <div class="quiz-step" data-step="1">
+                                <div class="step-info">
+                                    <h2 class="step-title">Your answer to this question will determine which CORI
+                                        department will handle your case.</h2>
+                                    <p class="step-description">Many fraudsters operate across multiple jurisdictions to
+                                        conceal assets and evade liability. CORI works with partner organizations in 29
+                                        jurisdictions to coordinate lawful recovery efforts and ensure accountability
+                                        worldwide.</p>
+                                </div>
+
+                                <div class="step-question">
+                                    <h3 class="question-title">What type of fraud have you encountered?</h3>
+                                    <div class="question-options">
+                                        <label class="option-item">
+                                            <input type="radio" name="fraud_type" value="broker_stopped_responding"
+                                                required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">The broker or consultant stopped responding after
+                                                I made my investment.</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="fraud_type" value="withdrawal_conditions_changed"
+                                                required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Withdrawal conditions were changed unilaterally /
+                                                I was asked to pay unexpected or previously undisclosed fees or
+                                                taxes.</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="fraud_type" value="account_blocked" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">An error allegedly occurred during the withdrawal
+                                                process, and/or my account and funds were blocked or frozen.</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="fraud_type" value="unauthorized_withdrawal"
+                                                required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Funds were withdrawn from my account without my
+                                                knowledge or authorization.</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="fraud_type" value="other" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Other</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: On what basis do you reside in Canada? -->
+                            <div class="quiz-step" data-step="2" style="display: none;">
+                                <div class="step-info">
+                                    <h2 class="step-title">Your answer to this question helps us determine which
+                                        recovery tools can be applied, depending on your legal status</h2>
+                                    <p class="step-description">CORI uses advanced blockchain forensics, AI analytics,
+                                        and cross-border intelligence to trace and recover assets globally.</p>
+                                </div>
+
+                                <div class="step-question">
+                                    <h3 class="question-title">On what basis do you reside in Canada?</h3>
+                                    <div class="question-options">
+                                        <label class="option-item">
+                                            <input type="radio" name="residence_status" value="canadian_citizenship"
+                                                required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Canadian citizenship</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="residence_status" value="other_citizenship"
+                                                required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Citizenship of another country</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="residence_status" value="permanent_resident"
+                                                required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Permanent resident status</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="residence_status" value="work_visa" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Work visa</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="residence_status" value="refugee_asylum" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Refugee or asylum status</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: From which financial source did you lose the funds? -->
+                            <div class="quiz-step" data-step="3" style="display: none;">
+                                <div class="step-info">
+                                    <h2 class="step-title">Your answer to this question determines whether debt
+                                        restructuring or write-off mechanisms will need to be applied in your case</h2>
+                                    <p class="step-description">FACT: Victims are often pressured into taking on debt.
+                                        In addition, if the fraudster cannot be located, compensation may be available.
+                                    </p>
+                                </div>
+
+                                <div class="step-question">
+                                    <h3 class="question-title">From which financial source did you lose the funds?</h3>
+                                    <div class="question-options">
+                                        <label class="option-item">
+                                            <input type="radio" name="fund_source" value="savings" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Savings</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="fund_source" value="salary_pension" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Salary/Pension</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="fund_source" value="bank_loan" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Bank loan</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="fund_source" value="borrowed_money" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Borrowed money</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: How much monetary loss did you incur? -->
+                            <div class="quiz-step" data-step="4" style="display: none;">
+                                <div class="step-info">
+                                    <h2 class="step-title">Your answer to this question affects which legal and recovery
+                                        measures can be applied and the priority of your case.</h2>
+                                    <p class="step-description">FACT: Over 1,000 successful recoveries were facilitated
+                                        by CORI in the first half of 2025. The key to a successful recovery is having
+                                        proof of the funds transferred to the fraudsters and records of communication
+                                        with them.</p>
+                                </div>
+
+                                <div class="step-question">
+                                    <h3 class="question-title">How much monetary loss did you incur?</h3>
+                                    <div class="question-options">
+                                        <label class="option-item">
+                                            <input type="radio" name="monetary_loss" value="up_to_5000" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Up to $5,000</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="monetary_loss" value="5000_to_10000" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">$5,000 – $10,000</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="monetary_loss" value="10000_to_25000" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">$10,000 – $25,000</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="monetary_loss" value="25000_to_50000" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">$25,000 – $50,000</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="monetary_loss" value="over_50000" required>
+                                            <span class="radio-custom"></span>
+                                            <span class="option-text">Over $50,000</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 5: Contact Details -->
+                            <div class="quiz-step" data-step="5" style="display: none;">
+                                <div class="step-info">
+                                    <h2 class="step-title">Your Contact Details</h2>
+                                    <p class="step-description">Get access to a preliminary assessment of your case,
+                                        personalized next-step recommendations (self-help or full legal guidance), and
+                                        templates, contacts, and official resources relevant to your situation.</p>
+                                </div>
+
+                                <div class="contact-form">
+                                    <div class="form-group">
+                                        <input type="text" name="first_name" placeholder="First name and Last name*"
+                                            required>
+                                    </div>
+
+                                    <div class="form-group phone-group">
+                                        <div class="phone-input-wrapper">
+                                            <input type="tel" id="phone-quiz" name="phone" placeholder="xx xxx xxxx*" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="email" name="email" placeholder="Email*" required>
+                                    </div>
+
+                                    <div class="form-group checkbox-group">
+                                        <input type="checkbox" id="privacy_policy" name="privacy_policy" required>
+                                        <label for="privacy_policy">I have read and agree to the <a
+                                                href="policy.html#privacy">Privacy Policy</a>.</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 6: Thank You -->
+                            <div class="quiz-step" data-step="6" style="display: none;">
+                                <div class="thank-you-content">
+                                    <h2 class="thank-you-title">Thank you for your registration!</h2>
+                                    <p class="thank-you-subtitle">Our colleague will contact you soon</p>
+                                    <button type="button" class="btn btn-home" id="backToHome">Back to Home</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-navigation">
+                            <button type="button" class="btn btn-back" id="backStep" style="display: none;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button type="button" class="btn btn-next" id="nextStep">
+                                <span id="nextStepLabel">Next</span>
+                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M12.5 5L19.5 12M19.5 12L12.5 19M19.5 12L5.5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <span class="step-counter" id="stepCounter">1/4</span>
+                        </div>
+
+                        <div class="quiz-error-message" style="display: none;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/js/intlTelInput.min.js"></script>
+    <script src="scripts/quiz-form.js"></script>
+</body>
+
+</html>

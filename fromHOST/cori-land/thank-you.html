@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Thank You</title>
+    <link href="images/favicon.ico" rel="icon" type="image/x-icon">
+
+    <link rel="stylesheet prefetch"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
+<!--     Meta Pixel Code-->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '4076190449289416');
+        fbq('track', 'PageView');
+        fbq('track', 'Lead');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=1215933716806197&ev=PageView&noscript=1"
+    /></noscript>
+<!--     End Meta Pixel Code-->
+</head>
+<body style="background-color:#eceeef" cz-shortcut-listen="true">;
+<div class="jumbotron text-xs-center">
+    <h2 style="color: #4b9ddc; font-size: 3rem;">We will be contacting you soon!</h2>
+    <img src="images/thanks.jpg" style="max-width: 100%; border-radius: 10px;">
+</div>
+
+<!--<script type="text/javascript" src="send.js"></script>-->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const responseJsonString = localStorage.getItem('responseJson');
+
+        if (responseJsonString) {
+            const responseJson = JSON.parse(responseJsonString);
+
+
+            if (responseJson.url) {
+                window.location.href = responseJson.url;
+                // localStorage.removeItem('responseJson');
+
+            } else {
+                console.log('No redirect URL in the response.');
+            }
+        } else {
+            console.log('No response data in localStorage.');
+        }
+    });
+</script>
+</body>
+</html>
